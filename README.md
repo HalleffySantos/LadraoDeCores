@@ -24,5 +24,4 @@ Como instalar, ajudar no desenvolvimento?
         **.sln
         **/Packages
         **/UserSettings
-        **.meta
 
