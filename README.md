@@ -17,7 +17,7 @@ Como instalar, ajudar no desenvolvimento?
     
     3) Abra o unity hub, seleciona "abrir projeto existente", selecione a pasta raiz do repositório instalado.
     
-    4) Caso, se decida pelo uso do vscode, para configura-lo junto ao unity: https://code.visualstudio.com/docs/other/unity.
+    4) Caso se decida pelo uso do vscode, para configura-lo junto ao unity: https://code.visualstudio.com/docs/other/unity.
     
     5) Assim, após a conclusão dessas etapas, a infraestrutura para o game está pronta.
 
