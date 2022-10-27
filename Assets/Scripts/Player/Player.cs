@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +9,6 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour, IPlayer
 {
     public bool estaNoChao { get; set; }
-
-    private List<Collider2D> colisoesDoPlayer;
 
     private Rigidbody2D playerRigidbody;
 
@@ -24,12 +23,11 @@ public class Player : MonoBehaviour, IPlayer
     // Start is called before the first frame update
     void Start()
     {
-        colisoesDoPlayer = new List<Collider2D>();
         estaNoChao = false;
 
-        velocidadeMaxPlayer = 1.5f;
+        velocidadeMaxPlayer = 4.5f;
         forcaPulo = 7f;
-        forcaMovimento = 100f;
+        forcaMovimento = 75f;
         limiteInferior = -5f;
 
         playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
@@ -43,8 +41,8 @@ public class Player : MonoBehaviour, IPlayer
 
     void FixedUpdate()
     {
-        colisoesDoPlayer.Clear();
-        MovimentoHorizontal();
+        //MovimentoHorizontal01();
+        MovimentoHorizontal02();
         ForaDosLimites();
     }
 
@@ -60,38 +58,58 @@ public class Player : MonoBehaviour, IPlayer
 
     public void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("A");
-        if (!colisoesDoPlayer.Contains(col.collider))
-        {
-            Debug.Log("B");
-            colisoesDoPlayer.Add(col.collider);
-        }
-
         var interacao = col.gameObject.GetComponent<IInteracao>();
         if (interacao != null)
         {
-            interacao.Acao(gameObject);
+            interacao.AcaoEntrada(gameObject);
         }
     }
 
-    private void MovimentoHorizontal()
+    public void OnCollisionExit2D(Collision2D col)
     {
-        //Debug.Log(estaNoChao.ToString() + " " + colisoesDoPlayer.Count().ToString());
+        var interacao = col.gameObject.GetComponent<IInteracao>();
+        if (interacao != null)
+        {
+            interacao.AcaoSaida(gameObject);
+        }
+    }
+
+    private void MovimentoHorizontal01()
+    {
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && estaNoChao)
         {
-            var direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0).normalized;
-            
-            playerRigidbody.AddForce(direction * forcaMovimento);
-            playerRigidbody.velocity = Vector3.ClampMagnitude(playerRigidbody.velocity, velocidadeMaxPlayer);
+            var direction = new Vector3(Input.GetAxis("Horizontal"), 0 , 0);
+
+            Debug.Log( playerRigidbody.velocity.x.ToString() + " " + (forcaMovimento * Time.fixedDeltaTime).ToString() + " " +
+            (playerRigidbody.velocity.x + forcaMovimento * Time.fixedDeltaTime).ToString() );
+
+            if (direction.x > 0 && (playerRigidbody.velocity.x + forcaMovimento * Time.fixedDeltaTime) < velocidadeMaxPlayer)
+            {
+                playerRigidbody.AddForce(direction * forcaMovimento);
+            }
+
+            if (direction.x < 0 && (playerRigidbody.velocity.x - forcaMovimento * Time.fixedDeltaTime) > -velocidadeMaxPlayer)
+            {
+                playerRigidbody.AddForce(direction * forcaMovimento);
+            }
+        }
+    }
+
+    private void MovimentoHorizontal02()
+    {
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+        {
+            var direction = new Vector3(Input.GetAxis("Horizontal"), 0 , 0);
+
+            gameObject.transform.position += direction * Time.fixedDeltaTime * velocidadeMaxPlayer; 
         }
     }
 
     private void MovimentoPular()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && estaNoChao)
         {
             playerRigidbody.AddForce(Vector3.up * forcaPulo, ForceMode2D.Impulse);
-            estaNoChao = false;
         }
     }
 

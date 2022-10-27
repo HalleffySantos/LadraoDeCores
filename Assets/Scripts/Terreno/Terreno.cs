@@ -18,11 +18,19 @@ public class Terreno : MonoBehaviour, IInteracao
         
     }
 
-    public void Acao(GameObject tObject)
+    public void AcaoEntrada(GameObject tObject)
     {
         if (tObject.CompareTag(GameObjectsTags.PlayerTag.Value))
         {
             tObject.GetComponent<IPlayer>().estaNoChao = true;
+        }
+    }
+
+    public void AcaoSaida(GameObject tObject)
+    {
+        if (tObject.CompareTag(GameObjectsTags.PlayerTag.Value))
+        {
+            tObject.GetComponent<IPlayer>().estaNoChao = false;
         }
     }
 }

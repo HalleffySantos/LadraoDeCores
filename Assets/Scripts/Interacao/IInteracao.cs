@@ -4,6 +4,8 @@ namespace Assets.Scripts.Interacao
 {
     public interface IInteracao
     {        
-        public void Acao(GameObject tObject);
+        void AcaoEntrada(GameObject tObject);
+
+        void AcaoSaida(GameObject tObject);
     }
 }

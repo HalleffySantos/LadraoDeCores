@@ -33,7 +33,7 @@ public class VictoryLight : MonoBehaviour
     private void EfeitoAtivo()
     {
         var emission = particle.emission;
-        if (player.GetPosicao().x >= 22 && player.GetPosicao().x <= 24 && player.GetPosicao().y >= -1)
+        if (player.GetPosicao().x >= 24 && player.GetPosicao().x <= 26 && player.GetPosicao().y >= -1)
         {
             emission.enabled = true;
         }

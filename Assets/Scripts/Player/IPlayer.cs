@@ -4,10 +4,10 @@ namespace Assets.Scripts.Interacao
 {
     public interface IPlayer
     { 
-        public bool estaNoChao { get; set; }
+        bool estaNoChao { get; set; }
 
-        public void Morte();
+        void Morte();
 
-        public Vector3 GetPosicao();
+        Vector3 GetPosicao();
     }
 }

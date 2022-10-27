@@ -34,13 +34,17 @@ public class Inimigo : MonoBehaviour, IInteracao
         TrocaDeDirecao();
     }
 
-    public void Acao(GameObject tObject)
+    public void AcaoEntrada(GameObject tObject)
     {
-        Debug.Log("C " + tObject.tag.ToString());
         if (tObject.CompareTag(GameObjectsTags.PlayerTag.Value))
         {
             tObject.GetComponent<IPlayer>().Morte();
         }
+    }
+
+    public void AcaoSaida(GameObject tObject)
+    {
+        throw new System.NotImplementedException();
     }
 
     private void Movimento()
@@ -51,12 +55,12 @@ public class Inimigo : MonoBehaviour, IInteracao
 
     private void TrocaDeDirecao()
     {
-        if (gameObject.transform.position.x <= 12)
+        if (gameObject.transform.position.x <= 13)
         {
             direction = new Vector3(1, 0, 0);
         }
 
-        if (gameObject.transform.position.x >= 19)
+        if (gameObject.transform.position.x >= 20)
         {
             direction = new Vector3(-1, 0, 0);
         }
