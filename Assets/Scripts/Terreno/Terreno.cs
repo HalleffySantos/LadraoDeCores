@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using Assets.Scripts.Enumeradores;
 using Assets.Scripts.Interacao;
+using Assets.Scripts.Player;
 using UnityEngine;
 
 public class Terreno : MonoBehaviour, IInteracao

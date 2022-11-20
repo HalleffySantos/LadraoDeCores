@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using Assets.Scripts.Enumeradores;
 using Assets.Scripts.Interacao;
+using Assets.Scripts.Player;
 using UnityEngine;
 
 public class Inimigo : MonoBehaviour, IInteracao
@@ -36,9 +35,15 @@ public class Inimigo : MonoBehaviour, IInteracao
 
     public void AcaoEntrada(GameObject tObject)
     {
-        if (tObject.CompareTag(GameObjectsTags.PlayerTag.Value))
+        if (tObject.GetComponent<IPlayer>() != null)
         {
             tObject.GetComponent<IPlayer>().Morte();
+            return;
+        }
+
+        if(tObject.GetComponent<IArma>() != null)
+        {
+            Morte();
         }
     }
 
@@ -64,5 +69,10 @@ public class Inimigo : MonoBehaviour, IInteracao
         {
             direction = new Vector3(-1, 0, 0);
         }
+    }
+
+    private void Morte()
+    {
+        Destroy(gameObject);
     }
 }

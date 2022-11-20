@@ -1,8 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+using Assets.Scripts.Enumeradores;
 using Assets.Scripts.Interacao;
+using Assets.Scripts.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,15 +8,17 @@ public class Player : MonoBehaviour, IPlayer
 {
     public bool estaNoChao { get; set; }
 
+    private Animator animatorPlayer;
+
     private Rigidbody2D playerRigidbody;
 
     private float velocidadeMaxPlayer;
 
-    private float forcaMovimento;
-
     private float forcaPulo;
 
     private float limiteInferior;
+
+    public Vector3 direcaoMovimento { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -27,10 +27,11 @@ public class Player : MonoBehaviour, IPlayer
 
         velocidadeMaxPlayer = 4.5f;
         forcaPulo = 7f;
-        forcaMovimento = 75f;
         limiteInferior = -5f;
+        direcaoMovimento = new Vector3(0, 0, 0);
 
         playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
+        animatorPlayer = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -41,9 +42,10 @@ public class Player : MonoBehaviour, IPlayer
 
     void FixedUpdate()
     {
-        //MovimentoHorizontal01();
-        MovimentoHorizontal02();
+        MovimentoHorizontal();
         ForaDosLimites();
+
+        ConfiguracaoAnimacaoPlayer();
     }
 
     public void Morte()
@@ -74,34 +76,14 @@ public class Player : MonoBehaviour, IPlayer
         }
     }
 
-    private void MovimentoHorizontal01()
+    private void MovimentoHorizontal()
     {
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && estaNoChao)
-        {
-            var direction = new Vector3(Input.GetAxis("Horizontal"), 0 , 0);
-
-            Debug.Log( playerRigidbody.velocity.x.ToString() + " " + (forcaMovimento * Time.fixedDeltaTime).ToString() + " " +
-            (playerRigidbody.velocity.x + forcaMovimento * Time.fixedDeltaTime).ToString() );
-
-            if (direction.x > 0 && (playerRigidbody.velocity.x + forcaMovimento * Time.fixedDeltaTime) < velocidadeMaxPlayer)
-            {
-                playerRigidbody.AddForce(direction * forcaMovimento);
-            }
-
-            if (direction.x < 0 && (playerRigidbody.velocity.x - forcaMovimento * Time.fixedDeltaTime) > -velocidadeMaxPlayer)
-            {
-                playerRigidbody.AddForce(direction * forcaMovimento);
-            }
-        }
-    }
-
-    private void MovimentoHorizontal02()
-    {
+        direcaoMovimento = new Vector3(Input.GetAxis("Horizontal"), 0 , 0);
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
-        {
-            var direction = new Vector3(Input.GetAxis("Horizontal"), 0 , 0);
+        {   
+            gameObject.transform.rotation = new Quaternion(0, direcaoMovimento.x < 0 ? 180 : 0, 0, 0);
 
-            gameObject.transform.position += direction * Time.fixedDeltaTime * velocidadeMaxPlayer; 
+            gameObject.transform.position += direcaoMovimento * Time.fixedDeltaTime * velocidadeMaxPlayer;
         }
     }
 
@@ -119,6 +101,37 @@ public class Player : MonoBehaviour, IPlayer
         {
             Morte();
         }
+    }
+
+    private void ConfiguracaoAnimacaoPlayer()
+    {
+        AnimacaoAndar();
+        AnimacaoParada();
+        
+        //AnimacaoPular();
+        //AnimacaoFala();
+        
+    }
+
+    private void AnimacaoAndar()
+    {
+        if (EstaAndando())
+        {
+            animatorPlayer.SetBool("EstaAndando", true);
+        }
+    }
+
+    private void AnimacaoParada()
+    {
+        if (!EstaAndando() && animatorPlayer.GetBool("EstaAndando"))
+        {
+            animatorPlayer.SetBool("EstaAndando", false);
+        }
+    }
+
+    private bool EstaAndando()
+    {
+        return direcaoMovimento.x > 0 || direcaoMovimento.x < 0 ? true : false;
     }
 
 }
