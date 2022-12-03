@@ -2,15 +2,16 @@ using UnityEngine;
 
 namespace Assets.Scripts.Interacao
 {
+    // Responsável por delagar a reponsábilidade de uma colisão ou trigger.
     public interface IInteracao
     {        
-        //Acao de entrada gerada pelo OnCollisionEnter.
+        // Método para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
         void AcaoEntrada(GameObject tObject);
 
-        //Acao de saida gerada pelo OnCollisionExit.
+        // Método para realização da ação chamada pelo OnTriggerExit ou OnCollisionExit.
         void AcaoSaida(GameObject tObject);
 
-        //Acao de stay gerada pelo OnCollisionStay.
+        // Método para realização da ação chamada pelo OnTriggerStay ou OnCollisionStay.
         void AcaoStay(GameObject tObject);
     }
 }

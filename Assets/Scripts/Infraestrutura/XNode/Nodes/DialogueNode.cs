@@ -2,6 +2,7 @@
 
 namespace Assets.Scripts.Infraestrutura.Nodes
 {
+	// Nó com as informações de uma fala de dialogo.
 	public class DialogueNode : BaseNode {
 
 		[Input] public int entry;

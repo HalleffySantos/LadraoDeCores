@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Infraestrutura.Nodes
 {
+	// Nó conditiocional para um diálogo.
 	public class ConditionalNode : BaseNode {
 
 		[Input] public int entry;

@@ -29,12 +29,7 @@ public class Npc : MonoBehaviour, IInteracao
         DesativaCaixaExplicativa();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // Metodo para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
     public void AcaoEntrada(GameObject tObject)
     {
         if (tObject.GetComponent<IPlayer>() != null)
@@ -43,6 +38,7 @@ public class Npc : MonoBehaviour, IInteracao
         }
     }
 
+    // Metodo para realização da ação chamada pelo OnTriggerExit ou OnCollisionExit.
     public void AcaoSaida(GameObject tObject)
     {
         if (tObject.GetComponent<IPlayer>() != null)
@@ -51,6 +47,7 @@ public class Npc : MonoBehaviour, IInteracao
         }
     }
 
+    // Metodo para realização da ação chamada pelo OnTriggerStay ou OnCollisionStay.
     public void AcaoStay(GameObject tObject)
     {
         var player = tObject.GetComponent<IPlayer>();

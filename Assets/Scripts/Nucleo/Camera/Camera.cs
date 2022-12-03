@@ -5,6 +5,7 @@ using Assets.Scripts.Enumeradores;
 using Assets.Scripts.Player;
 using UnityEngine;
 
+// Script referente a camera.
 public class Camera : MonoBehaviour
 {
     private IPlayer player;
@@ -21,6 +22,7 @@ public class Camera : MonoBehaviour
         AcompanharMovPlayer();
     }
 
+    // Vincula a camera ao player
     private void AcompanharMovPlayer()
     {
         gameObject.transform.position = new Vector3(player.GetPosicao().x, player.GetPosicao().y, -10);

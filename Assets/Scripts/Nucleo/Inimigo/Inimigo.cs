@@ -1,8 +1,8 @@
-using Assets.Scripts.Enumeradores;
 using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
 using UnityEngine;
 
+// Script base de um inimigo.
 public class Inimigo : MonoBehaviour, IInteracao
 {
     private Rigidbody2D enemyRigibody;
@@ -33,6 +33,7 @@ public class Inimigo : MonoBehaviour, IInteracao
         TrocaDeDirecao();
     }
 
+    // Método para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
     public void AcaoEntrada(GameObject tObject)
     {
         if (tObject.GetComponent<IPlayer>() != null)

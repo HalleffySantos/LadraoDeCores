@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using Assets.Scripts.Enumeradores;
 using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
 using UnityEngine;
 
+// Script referente as reponsábilidades da arma.
 public class Arma : MonoBehaviour, IArma
 {
     private SpriteRenderer spriteRendArma;

@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using Assets.Scripts.Enumeradores;
-using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
 using UnityEngine;
 
+// Efeito em que bolas de luz saem do player.
 public class VictoryLight : MonoBehaviour
 {
     private IPlayer player;

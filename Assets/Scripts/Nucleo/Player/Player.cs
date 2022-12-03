@@ -4,12 +4,16 @@ using Assets.Scripts.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Script referente as reponsábilidade do player.
 public class Player : MonoBehaviour, IPlayer
 {
+    // Recebe a direção que o player está se movendo.
     public Vector3 direcaoMovimento { get; private set; }
     
+    // Recebe e insere se o player pode ou não se mover.
     public bool movimentoHabilitado { get; set; }
 
+    // Recebe e insere se o player está no chão ou não.
     public bool estaNoChao { get; set; }
 
     private Animator animatorPlayer;
@@ -56,11 +60,13 @@ public class Player : MonoBehaviour, IPlayer
         ConfiguracaoAnimacaoPlayer();
     }
 
+    // Mata o player.
     public void Morte()
     {
         SceneManager.LoadScene("Fase 0", LoadSceneMode.Single);
     }
 
+    // Recebe a posição do player.
     public Vector3 GetPosicao()
     {
         return gameObject.transform.position;

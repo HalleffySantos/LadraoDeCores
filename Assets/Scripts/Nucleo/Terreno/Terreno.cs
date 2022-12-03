@@ -1,4 +1,3 @@
-using Assets.Scripts.Enumeradores;
 using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
 using UnityEngine;
@@ -17,22 +16,27 @@ public class Terreno : MonoBehaviour, IInteracao
         
     }
 
+    // Método para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
     public void AcaoEntrada(GameObject tObject)
     {
-        if (tObject.CompareTag(GameObjectsTags.PlayerTag.Value))
+        var player = tObject.GetComponent<IPlayer>();
+        if (player != null)
         {
-            tObject.GetComponent<IPlayer>().estaNoChao = true;
+            player.estaNoChao = true;
         }
     }
 
+    // Método para realização da ação chamada pelo OnTriggerExit ou OnCollisionExit.
     public void AcaoSaida(GameObject tObject)
     {
-        if (tObject.CompareTag(GameObjectsTags.PlayerTag.Value))
+        var player = tObject.GetComponent<IPlayer>();
+        if (player != null)
         {
-            tObject.GetComponent<IPlayer>().estaNoChao = false;
+            player.estaNoChao = false;
         }
     }
 
+    // Método para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
     public void AcaoStay(GameObject tObject)
     {
         
