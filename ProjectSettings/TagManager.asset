@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Terreno
   - Inimigo
+  - NodeParser
+  - CaixaDeDialogo
+  - Npc
   layers:
   - Default
   - TransparentFX
