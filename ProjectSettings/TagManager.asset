@@ -9,6 +9,7 @@ TagManager:
   - NodeParser
   - CaixaDeDialogo
   - Npc
+  - ItemJumpManager
   layers:
   - Default
   - TransparentFX

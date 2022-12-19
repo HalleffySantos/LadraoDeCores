@@ -53,7 +53,6 @@ public class Npc : MonoBehaviour, IInteracao
         var player = tObject.GetComponent<IPlayer>();
         if (player != null && player.movimentoHabilitado && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Trigou Stay");
             player.movimentoHabilitado = false;
             caixaDeDialogo.AparecerComACaixaDeDialogo();
             nodeParser.ExecuteDialogo(dialogueGraph);

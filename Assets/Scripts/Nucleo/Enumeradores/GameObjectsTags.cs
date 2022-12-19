@@ -25,5 +25,8 @@ namespace Assets.Scripts.Enumeradores
 
         //Enumerador referente a tag de Npc.
         public static GameObjectsTags NpcTag { get { return new GameObjectsTags("Npc"); } }
+
+        //Enumerador referente a tag de ItemJumpManager.
+        public static GameObjectsTags ItemJumpManagerTag { get { return new GameObjectsTags("ItemJumpManager"); } }
     }
 }

@@ -1,4 +1,5 @@
 using Assets.Scripts.Enumeradores;
+using Assets.Scripts.Enumeradores.Animacoes;
 using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
 using UnityEngine;
@@ -14,12 +15,15 @@ public class Arma : MonoBehaviour, IArma
 
     private IPlayer player;
 
+    private Animator animatorArma;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value).GetComponent<IPlayer>();
         colliderArma = GetComponent<Collider2D>();
         spriteRendArma = GetComponent<SpriteRenderer>();
+        animatorArma = GetComponent<Animator>();
         DefinicoesArma();
     }
 
@@ -41,22 +45,17 @@ public class Arma : MonoBehaviour, IArma
     private void DefinicoesArma()
     {
         distArmaPlayer = new Vector3(0.3f, -0.05f, 0);
-        colliderArma.isTrigger = true;
-        spriteRendArma.color = new Color(spriteRendArma.color.r, spriteRendArma.color.g, spriteRendArma.color.b, 0);
+        DesabilitaArma();
     }
 
     private void Slash()
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            colliderArma.isTrigger = false;
-            spriteRendArma.color = new Color(spriteRendArma.color.r, spriteRendArma.color.g, spriteRendArma.color.b, 1);
-        }
+            HabilitaArma();
 
-        if (Input.GetKeyUp(KeyCode.J))
-        {
-            colliderArma.isTrigger = true;
-            spriteRendArma.color = new Color(spriteRendArma.color.r, spriteRendArma.color.g, spriteRendArma.color.b, 0);
+            animatorArma.SetBool(TriggersAnimacaoArma.Ataque.Value, true);
+            player.ComecaAnimacaoDeAtaque();
         }
     }
 
@@ -66,14 +65,75 @@ public class Arma : MonoBehaviour, IArma
         DirecaoArma();
     }
 
+    private void TerminaSlash()
+    {
+        DesabilitaArma();
+
+        animatorArma.SetBool(TriggersAnimacaoArma.Ataque.Value, false);
+        player.TerminaAnimacaoDeAtaque();
+    }
+
     private void PosicaoArma()
     {
-        var posArma = new Vector3((player.direcaoMovimento.x < 0 ? -1 : 1) * distArmaPlayer.x, distArmaPlayer.y, 0);
-        gameObject.transform.position = player.GetPosicao() + posArma;
+        gameObject.transform.position = player.GetPosicao();
     }
 
     private void DirecaoArma()
     {
-        gameObject.transform.rotation = new Quaternion(0, player.direcaoMovimento.x < 0 ? 180 : 0, 0, 0);
+        var dirX = player.direcaoMovimento.x;
+        var dirY = player.direcaoMovimento.y;
+
+        var anguloZ = 0;
+        var anguloY = 0;
+        if (dirX > 0 && dirY > 0)
+        {
+            anguloZ = 45;
+        }
+
+        if (dirX > 0 && dirY < 0)
+        {
+            anguloZ = 315;
+        }
+
+        if (dirX == 0 && dirY > 0)
+        {
+            anguloZ = 90;
+        }
+
+        if (dirX == 0 && dirY < 0)
+        {
+            anguloZ = 270;
+        }
+
+        if (dirX < 0 && dirY > 0)
+        {
+            anguloZ = 45;
+            anguloY = 180;
+        }
+
+        if (dirX < 0 && dirY == 0)
+        {
+            anguloY = 180;
+        }
+
+        if (dirX < 0 && dirY < 0)
+        {
+            anguloZ = 315;
+            anguloY = 180;
+        }
+
+        gameObject.transform.rotation = Quaternion.Euler(0, anguloY, anguloZ);
+    }
+
+    private void HabilitaArma()
+    {
+        colliderArma.isTrigger = false;
+        spriteRendArma.color = new Color(spriteRendArma.color.r, spriteRendArma.color.g, spriteRendArma.color.b, 1);
+    }
+
+    private void DesabilitaArma()
+    {
+        colliderArma.isTrigger = true;
+        spriteRendArma.color = new Color(spriteRendArma.color.r, spriteRendArma.color.g, spriteRendArma.color.b, 0);
     }
 }

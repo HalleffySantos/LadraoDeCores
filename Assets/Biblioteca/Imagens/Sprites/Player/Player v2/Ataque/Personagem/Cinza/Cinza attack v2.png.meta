@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b8777378a04cff449a37f879b00aff65
+guid: 72b0fb494c3fcc94bb1cc6b5f759a8b5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,215 +101,164 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Prot\xF3tipo - cinza_0"
+      name: Cinza attack v2_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 96
-        width: 14
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 146a20ef01cede544b6007243006dc6c
-      internalID: -1930615254
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Prot\xF3tipo - cinza_1"
-      rect:
-        serializedVersion: 2
-        x: 41
-        y: 96
-        width: 14
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2ab87a3eef277c42826b8ae8ae61758
-      internalID: 2071613069
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Prot\xF3tipo - cinza_2"
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 95
-        width: 15
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1eb4e267b053f34fbb7183f964f0f50
-      internalID: 255194722
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Prot\xF3tipo - cinza_3"
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 65
-        width: 16
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aef82007fef730747a785a30a6078dfa
-      internalID: -92556964
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Prot\xF3tipo - cinza_4"
-      rect:
-        serializedVersion: 2
-        x: 41
-        y: 64
-        width: 14
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8c293842327979d46b5f077c2709014e
-      internalID: -1027759209
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Prot\xF3tipo - cinza_5"
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 64
-        width: 14
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 13ff58f0558024744a37f10e4567d155
-      internalID: 979318632
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Prot\xF3tipo - cinza_6"
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 32
-        width: 14
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5790c1f66ebaedc4db45e06c2e8598fb
-      internalID: 1898346364
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Prot\xF3tipo - cinza_7"
-      rect:
-        serializedVersion: 2
-        x: 41
-        y: 31
-        width: 14
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c64eb8c4978b93d4182b4f43e17efa99
-      internalID: -1218271138
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Prot\xF3tipo - cinza_8"
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 32
-        width: 17
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19bf3dc315d786145a6dea9d8e5aa535
-      internalID: -612795891
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Prot\xF3tipo - cinza_9"
-      rect:
-        serializedVersion: 2
-        x: 7
+        x: 16
         y: 0
-        width: 18
-        height: 23
+        width: 51
+        height: 69
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73d97322bef4a854da7125b7e0ed9370
-      internalID: 410393255
+      spriteID: 0ac72dbfc0bc4a4449390cdb15c91bef
+      internalID: -1247669031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cinza attack v2_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 51
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd78357925d014940929b083835ece1d
+      internalID: -2016263359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cinza attack v2_2
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 0
+        width: 49
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5540e503de46be489d5525e9197716b
+      internalID: 887481387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cinza attack v2_3
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 0
+        width: 45
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6403345f970dd52479ca384d1eda258a
+      internalID: -524218099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cinza attack v2_4
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 0
+        width: 45
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdd75491e31b60640a783b26efa2ca0a
+      internalID: -184043925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cinza attack v2_5
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 0
+        width: 45
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db936cfe3b8d8d94280ed39b78cad7ce
+      internalID: 453501479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cinza attack v2_6
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 0
+        width: 45
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e835da98d42ee749973d17d91e70b8a
+      internalID: 2094586078
       vertices: []
       indices: 
       edges: []
@@ -325,16 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "Prot\xF3tipo - cinza_8": -612795891
-      "Prot\xF3tipo - cinza_9": 410393255
-      "Prot\xF3tipo - cinza_7": -1218271138
-      "Prot\xF3tipo - cinza_6": 1898346364
-      "Prot\xF3tipo - cinza_2": 255194722
-      "Prot\xF3tipo - cinza_0": -1930615254
-      "Prot\xF3tipo - cinza_3": -92556964
-      "Prot\xF3tipo - cinza_4": -1027759209
-      "Prot\xF3tipo - cinza_1": 2071613069
-      "Prot\xF3tipo - cinza_5": 979318632
+      Cinza attack v2_0: -1247669031
+      Cinza attack v2_6: 2094586078
+      Cinza attack v2_1: -2016263359
+      Cinza attack v2_2: 887481387
+      Cinza attack v2_5: 453501479
+      Cinza attack v2_4: -184043925
+      Cinza attack v2_3: -524218099
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
