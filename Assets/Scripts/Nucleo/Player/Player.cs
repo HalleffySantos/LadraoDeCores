@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.Enumeradores.Animacoes;
 using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
@@ -35,9 +36,9 @@ public class Player : MonoBehaviour, IPlayer
 
     private IList<Collider2D> objetosEmContato;
 
-    private bool pulou;
+    private IList<Collision2D> objetosEmColisao;
 
-    private bool estaEscalando;
+    private bool pulou;
 
     private bool podeDash;
     private bool estaNoDash;
@@ -61,12 +62,12 @@ public class Player : MonoBehaviour, IPlayer
         playerTr = gameObject.GetComponent<TrailRenderer>();
 
         objetosEmContato = new List<Collider2D>();
+        objetosEmColisao = new List<Collision2D>();
         pulou = false;
-        estaEscalando = false;
 
         podeDash = true;
         estaNoDash = false;
-        forcaDash = 5f;
+        forcaDash = 12f;
         tempoDash = 0.2f;
         cooldownDash = 1.5f;
     }
@@ -128,7 +129,6 @@ public class Player : MonoBehaviour, IPlayer
     // Configurações para o player se prender a uma parede.
     public void ComecaEscalarParede()
     {
-        estaEscalando = true;
         animatorPlayer.SetBool(TriggersAnimacaoPlayer.Escalar.Value, true);
         playerRigidbody.gravityScale = 0.1f;
     }
@@ -137,7 +137,6 @@ public class Player : MonoBehaviour, IPlayer
     // Configurações para o player parar de se prender a uma parede.
     public void TerminaEscalarParede()
     {
-        estaEscalando = false;
         animatorPlayer.SetBool(TriggersAnimacaoPlayer.Escalar.Value, false);
         playerRigidbody.gravityScale = 1.0f;
     }
@@ -152,17 +151,31 @@ public class Player : MonoBehaviour, IPlayer
         playerRigidbody.velocity = new Vector2(0, 0);
         playerRigidbody.angularVelocity = 0;
 
-        Debug.Log(dir);
         playerRigidbody.AddForce(dir * (-1) * forcaPulo, ForceMode2D.Impulse);
+    }
+
+    // Instance id do terreno que o player está em contato.
+    public int TerrenoEmContato()
+    {
+        Debug.Log(objetosEmColisao.Count);
+        return objetosEmColisao.Where(x => x.gameObject.GetComponent<ITerreno>() != null).FirstOrDefault().gameObject.GetInstanceID();
+    }
+
+    // A cor atual do player.
+    public Color CorDoPlayer()
+    {
+        return gameObject.GetComponent<SpriteRenderer>().color;
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        objetosEmColisao.Add(col);
         VerificaInteracaoEntrada(col.gameObject.GetComponent<IInteracao>());
     }
 
     private void OnCollisionExit2D(Collision2D col)
     {
+        objetosEmColisao.Remove(col);
         ultimoObjetoEmContato = col.gameObject.GetInstanceID();
         VerificaInteracaoSaida(col.gameObject.GetComponent<IInteracao>());
     }
@@ -244,6 +257,7 @@ public class Player : MonoBehaviour, IPlayer
 
         playerTr.emitting = false;
         playerRigidbody.gravityScale = originalGravity;
+        playerRigidbody.velocity = new Vector2(0, 0);
         estaNoDash = false;
         
         yield return new WaitForSeconds(cooldownDash);
@@ -262,7 +276,6 @@ public class Player : MonoBehaviour, IPlayer
     {
         AnimacaoAndar();
         AnimacaoPular();
-        
     }
 
     private void AnimacaoAndar()
@@ -306,6 +319,11 @@ public class Player : MonoBehaviour, IPlayer
         return pulou && !estaNoChao;
     }
 
+    private bool EstaEscalando()
+    {
+        return animatorPlayer.GetBool(TriggersAnimacaoPlayer.Escalar.Value);
+    }
+
     private void VerificaInteracaoEntrada(IInteracao interacao)
     {
         if (interacao != null)
@@ -327,6 +345,12 @@ public class Player : MonoBehaviour, IPlayer
         animatorPlayer.speed = 0;
         SceneManager.LoadScene("Global");
         SceneManager.LoadSceneAsync("Test", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Fase 0", LoadSceneMode.Additive);
+    }
+
+    private void EncerraPulo()
+    {
+        pulou = false;
     }
 
 }

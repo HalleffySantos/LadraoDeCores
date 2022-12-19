@@ -37,5 +37,11 @@ namespace Assets.Scripts.Player
 
         // Recuo vertical infringido ao player após acertar um inimigo/objeto com a arma.
         public void RecuoVertical();
+
+        // Instance id do terreno que o player está em contato.
+        public int TerrenoEmContato();
+
+        // A cor atual do player.
+        public Color CorDoPlayer();
     }
 }

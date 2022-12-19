@@ -5,7 +5,7 @@ using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
 using UnityEngine;
 
-public class Parede : MonoBehaviour, IInteracao
+public class Parede : Terreno
 {
     private IPlayer player;
 
@@ -24,18 +24,23 @@ public class Parede : MonoBehaviour, IInteracao
     }
 
     // Método para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
-    public void AcaoEntrada(GameObject tObject)
+    public override void AcaoEntrada(GameObject tObject)
     {
         var player = tObject.GetComponent<IPlayer>();
         if (player != null && gameObject.GetInstanceID() != player.ultimoObjetoEmContato)
         {
+            if (player.CorDoPlayer() != Color.white && player.CorDoPlayer() != spriteRenderer.color)
+            {
+                player.Morte();
+            }
+
             player.estaNoChao = true;
             player.ComecaEscalarParede();
         }
     }
 
     // Método para realização da ação chamada pelo OnTriggerExit ou OnCollisionExit.
-    public void AcaoSaida(GameObject tObject)
+    public override void AcaoSaida(GameObject tObject)
     {
         var player = tObject.GetComponent<IPlayer>();
         if (player != null)
@@ -46,7 +51,7 @@ public class Parede : MonoBehaviour, IInteracao
     }
 
     // Método para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
-    public void AcaoStay(GameObject tObject)
+    public override void AcaoStay(GameObject tObject)
     {
         
     }

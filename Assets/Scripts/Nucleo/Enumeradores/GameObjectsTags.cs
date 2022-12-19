@@ -28,5 +28,11 @@ namespace Assets.Scripts.Enumeradores
 
         //Enumerador referente a tag de ItemJumpManager.
         public static GameObjectsTags ItemJumpManagerTag { get { return new GameObjectsTags("ItemJumpManager"); } }
+
+        //Enumerador referente a tag do GameManager.
+        public static GameObjectsTags GameManagerTag { get { return new GameObjectsTags("GameManager"); } }
+
+        //Enumerador referente a tag do BossAve.
+        public static GameObjectsTags BossAveTag { get { return new GameObjectsTags("BossAve"); } }
     }
 }

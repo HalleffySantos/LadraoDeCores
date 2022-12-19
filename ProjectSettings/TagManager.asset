@@ -10,6 +10,8 @@ TagManager:
   - CaixaDeDialogo
   - Npc
   - ItemJumpManager
+  - GameManager
+  - BossAve
   layers:
   - Default
   - TransparentFX

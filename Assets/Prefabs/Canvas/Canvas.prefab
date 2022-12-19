@@ -59,7 +59,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &1527537307817111396
 MonoBehaviour:
@@ -108,6 +108,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1527537307817111398}
     m_Modifications:
+    - target: {fileID: 1806844447, guid: cfdc04a2020809b47b375c3e0aea019d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870539511, guid: cfdc04a2020809b47b375c3e0aea019d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
+      objectReference: {fileID: 0}
     - target: {fileID: 6889441197972605932, guid: cfdc04a2020809b47b375c3e0aea019d, type: 3}
       propertyPath: m_Name
       value: CaixaDeDialogo
@@ -198,15 +206,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6889441199868045928, guid: cfdc04a2020809b47b375c3e0aea019d, type: 3}
       propertyPath: m_Color.b
-      value: 0.21804911
+      value: 0.43633097
       objectReference: {fileID: 0}
     - target: {fileID: 6889441199868045928, guid: cfdc04a2020809b47b375c3e0aea019d, type: 3}
       propertyPath: m_Color.g
-      value: 0.21804911
+      value: 0.1980242
       objectReference: {fileID: 0}
     - target: {fileID: 6889441199868045928, guid: cfdc04a2020809b47b375c3e0aea019d, type: 3}
       propertyPath: m_Color.r
-      value: 0.26415092
+      value: 0.4716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889441199868045928, guid: cfdc04a2020809b47b375c3e0aea019d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889441199868045929, guid: cfdc04a2020809b47b375c3e0aea019d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfdc04a2020809b47b375c3e0aea019d, type: 3}

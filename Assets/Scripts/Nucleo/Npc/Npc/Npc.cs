@@ -10,13 +10,13 @@ public class Npc : MonoBehaviour, IInteracao
 {
     public DialogueGraph dialogueGraph;
 
-    private INodeParser nodeParser;
+    internal ICaixaDeDialogo caixaDeDialogo;
 
-    private ICaixaDeDialogo caixaDeDialogo;
+    internal INodeParser nodeParser;
 
-    private SpriteRenderer[] caixaExplicativaSprite;
+    internal SpriteRenderer[] caixaExplicativaSprite;
 
-    private TextMeshPro[] caixaExplicativaTexto;
+    internal TextMeshPro[] caixaExplicativaTexto;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class Npc : MonoBehaviour, IInteracao
     }
 
     // Metodo para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
-    public void AcaoEntrada(GameObject tObject)
+    public virtual void AcaoEntrada(GameObject tObject)
     {
         if (tObject.GetComponent<IPlayer>() != null)
         {
@@ -39,7 +39,7 @@ public class Npc : MonoBehaviour, IInteracao
     }
 
     // Metodo para realização da ação chamada pelo OnTriggerExit ou OnCollisionExit.
-    public void AcaoSaida(GameObject tObject)
+    public virtual void AcaoSaida(GameObject tObject)
     {
         if (tObject.GetComponent<IPlayer>() != null)
         {
@@ -48,7 +48,7 @@ public class Npc : MonoBehaviour, IInteracao
     }
 
     // Metodo para realização da ação chamada pelo OnTriggerStay ou OnCollisionStay.
-    public void AcaoStay(GameObject tObject)
+    public virtual void AcaoStay(GameObject tObject)
     {
         var player = tObject.GetComponent<IPlayer>();
         if (player != null && player.movimentoHabilitado && Input.GetKeyDown(KeyCode.E))
@@ -59,7 +59,7 @@ public class Npc : MonoBehaviour, IInteracao
         }
     }
 
-    private void AtivaCaixaExplicativa()
+    internal void AtivaCaixaExplicativa()
     {
         foreach (var sprite in caixaExplicativaSprite)
         {
@@ -72,7 +72,7 @@ public class Npc : MonoBehaviour, IInteracao
         }
     }
 
-    private void DesativaCaixaExplicativa()
+    internal void DesativaCaixaExplicativa()
     {
         foreach (var sprite in caixaExplicativaSprite)
         {

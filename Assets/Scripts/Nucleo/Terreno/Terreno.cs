@@ -2,12 +2,14 @@ using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
 using UnityEngine;
 
-public class Terreno : MonoBehaviour, IInteracao
+public class Terreno : MonoBehaviour, IInteracao, ITerreno
 {
+    internal SpriteRenderer spriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -17,17 +19,22 @@ public class Terreno : MonoBehaviour, IInteracao
     }
 
     // Método para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
-    public void AcaoEntrada(GameObject tObject)
+    public virtual void AcaoEntrada(GameObject tObject)
     {
         var player = tObject.GetComponent<IPlayer>();
-        if (player != null)
+        if (player != null )
         {
+            if (player.CorDoPlayer() != Color.white && player.CorDoPlayer() != spriteRenderer.color)
+            {
+                player.Morte();
+            }
+
             player.estaNoChao = true;
         }
     }
 
     // Método para realização da ação chamada pelo OnTriggerExit ou OnCollisionExit.
-    public void AcaoSaida(GameObject tObject)
+    public virtual void AcaoSaida(GameObject tObject)
     {
         var player = tObject.GetComponent<IPlayer>();
         if (player != null)
@@ -37,8 +44,13 @@ public class Terreno : MonoBehaviour, IInteracao
     }
 
     // Método para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
-    public void AcaoStay(GameObject tObject)
+    public virtual void AcaoStay(GameObject tObject)
     {
-        
+
+    }
+
+    public void ChangeColor(Color cor)
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = cor;
     }
 }

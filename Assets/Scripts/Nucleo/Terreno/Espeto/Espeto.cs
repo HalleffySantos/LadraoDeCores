@@ -5,7 +5,7 @@ using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
 using UnityEngine;
 
-public class Espeto : MonoBehaviour, IInteracao
+public class Espeto : Terreno
 {
     private IPlayer player;
 
@@ -25,7 +25,7 @@ public class Espeto : MonoBehaviour, IInteracao
     }
 
     // Método para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
-    public void AcaoEntrada(GameObject tObject)
+    public override void AcaoEntrada(GameObject tObject)
     {
         if (tObject.GetComponent<IPlayer>() != null)
         {
@@ -40,14 +40,17 @@ public class Espeto : MonoBehaviour, IInteracao
     }
 
     // Método para realização da ação chamada pelo OnTriggerExit ou OnCollisionExit.
-    public void AcaoSaida(GameObject tObject)
+    public override void AcaoSaida(GameObject tObject)
     {
 
     }
 
     // Método para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
-    public void AcaoStay(GameObject tObject)
+    public override void AcaoStay(GameObject tObject)
     {
-        
+        if(tObject.GetComponent<IArma>() != null)
+        {
+            player.RecuoVertical();
+        }
     }
 }
