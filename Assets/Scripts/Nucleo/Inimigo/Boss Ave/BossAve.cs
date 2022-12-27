@@ -6,7 +6,7 @@ using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
 using UnityEngine;
 
-public class BossAve : MonoBehaviour, IInteracao, IBossAve
+public class BossAve : MonoBehaviour, IInteracao, IBossAve, IInimigo
 {
     public float tempoDeAguardo;
 

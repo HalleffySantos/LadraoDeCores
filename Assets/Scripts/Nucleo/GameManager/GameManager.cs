@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour, IGameManager
         coresColetadas = new List<Color>();
         coresColetadas.Add(Color.black);
 
-        //ResetarCoresObjetos();
     }
 
     // Update is called once per frame

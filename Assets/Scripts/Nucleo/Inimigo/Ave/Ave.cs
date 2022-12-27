@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
 using UnityEngine;
 
-public class Ave : MonoBehaviour, IInteracao
+public class Ave : MonoBehaviour, IInteracao, IInimigo
 {
     public float limiteDireita;
 

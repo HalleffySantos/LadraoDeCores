@@ -524,6 +524,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1527537309457331829, guid: 0969bc65d0a277943a5a3d468c476296, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527537309457331829, guid: 0969bc65d0a277943a5a3d468c476296, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527537309457331829, guid: 0969bc65d0a277943a5a3d468c476296, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381468755974073954, guid: 0969bc65d0a277943a5a3d468c476296, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381468755974073954, guid: 0969bc65d0a277943a5a3d468c476296, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381468755974073954, guid: 0969bc65d0a277943a5a3d468c476296, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381468756536030949, guid: 0969bc65d0a277943a5a3d468c476296, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381468756536030949, guid: 0969bc65d0a277943a5a3d468c476296, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381468756536030949, guid: 0969bc65d0a277943a5a3d468c476296, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0969bc65d0a277943a5a3d468c476296, type: 3}
 --- !u!1001 &6488901780871581090
@@ -604,11 +640,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 221167927717678370, guid: 54b8a946ba12cc84b87952e6706d8c3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -63.45
+      value: 33.34
       objectReference: {fileID: 0}
     - target: {fileID: 221167927717678370, guid: 54b8a946ba12cc84b87952e6706d8c3a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.46
+      value: 20.46
       objectReference: {fileID: 0}
     - target: {fileID: 221167927717678370, guid: 54b8a946ba12cc84b87952e6706d8c3a, type: 3}
       propertyPath: m_LocalPosition.z

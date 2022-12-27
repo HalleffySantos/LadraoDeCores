@@ -25,6 +25,6 @@ public class Camera : MonoBehaviour
     // Vincula a camera ao player
     private void AcompanharMovPlayer()
     {
-        gameObject.transform.position = new Vector3(player.GetPosicao().x, player.GetPosicao().y, -10);
+        gameObject.transform.position = new Vector3(player.GetPosicao().x, player.GetPosicao().y + 2, -10);
     }
 }

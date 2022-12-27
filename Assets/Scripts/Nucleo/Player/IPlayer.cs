@@ -15,7 +15,7 @@ namespace Assets.Scripts.Player
         bool movimentoHabilitado { get; set; }
 
         // Recebe o id do ultimo objeto que o player esteve em contato.
-        public int ultimoObjetoEmContato { get; }
+        int ultimoObjetoEmContato { get; }
 
         // Mata o player.
         void Morte();
@@ -27,21 +27,21 @@ namespace Assets.Scripts.Player
         void ComecaAnimacaoDeAtaque();
 
         // Termina a animação de ataque do player.
-        public void TerminaAnimacaoDeAtaque();
+        void TerminaAnimacaoDeAtaque();
 
         // Configurações para o player se prender a uma parede.
-        public void ComecaEscalarParede();
+        void ComecaEscalarParede();
 
         // Configurações para o player parar de se prender a uma parede.
-        public void TerminaEscalarParede();
+        void TerminaEscalarParede();
 
         // Recuo vertical infringido ao player após acertar um inimigo/objeto com a arma.
-        public void RecuoVertical();
+        void RecuoVertical();
 
         // Instance id do terreno que o player está em contato.
-        public int TerrenoEmContato();
+        int TerrenoEmContato();
 
         // A cor atual do player.
-        public Color CorDoPlayer();
+        Color CorDoPlayer();
     }
 }
