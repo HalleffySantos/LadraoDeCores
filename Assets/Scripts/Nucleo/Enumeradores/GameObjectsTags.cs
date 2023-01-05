@@ -8,6 +8,9 @@ namespace Assets.Scripts.Enumeradores
 
         private GameObjectsTags(string value) { Value = value; }
 
+        //Enumerador referente a tag da interface (Main e Pause).
+        public static GameObjectsTags InterfaceTag { get { return new GameObjectsTags("PauseInterface"); } }
+
         //Enumerador referente a tag do player.
         public static GameObjectsTags PlayerTag { get { return new GameObjectsTags("Player"); } }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.Enumeradores;
 using Assets.Scripts.Enumeradores.Animacoes;
 using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour, IPlayer
     // Start is called before the first frame update
     void Start()
     {
+
         movimentoHabilitado = true;
         estaNoChao = false;
 
@@ -70,6 +72,8 @@ public class Player : MonoBehaviour, IPlayer
         forcaDash = 12f;
         tempoDash = 0.2f;
         cooldownDash = 1.5f;
+
+        
     }
 
     // Update is called once per frame
@@ -82,7 +86,7 @@ public class Player : MonoBehaviour, IPlayer
 
         MovimentoPular();
         MovimentoDash();
-        VerificaAcaoStay();
+        VerificaAcaoStay();    
     }
 
     void FixedUpdate()
