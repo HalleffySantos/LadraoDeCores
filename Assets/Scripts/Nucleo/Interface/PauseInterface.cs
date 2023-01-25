@@ -4,6 +4,7 @@ using Assets.Scripts.PauseInterface;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Assets.Scripts.Enumeradores;
+using Assets.Scripts.Player;
 
 public class PauseInterface : MonoBehaviour, IPauseInterface
 {
@@ -48,5 +49,14 @@ public class PauseInterface : MonoBehaviour, IPauseInterface
     public void BackToMenu()
     {
         SceneManager.LoadScene("Interface");
+    }
+
+    public void SaveGame()
+    { 
+        var player = GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value).GetComponent<IPlayer>();
+        Debug.Log("Awake:" + player.sceneUltimoObjetoEmContato);
+
+        SaveData.current.profile.ultimaSala = player.sceneUltimoObjetoEmContato;
+    
     }
 }

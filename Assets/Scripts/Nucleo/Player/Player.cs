@@ -23,6 +23,8 @@ public class Player : MonoBehaviour, IPlayer
     // Recebe o id do ultimo objeto que o player esteve em contato.
     public int ultimoObjetoEmContato { get; private set; }
 
+    public string sceneUltimoObjetoEmContato { get; private set; }
+
     private Animator animatorPlayer;
 
     private Rigidbody2D playerRigidbody;
@@ -174,6 +176,7 @@ public class Player : MonoBehaviour, IPlayer
     private void OnCollisionEnter2D(Collision2D col)
     {
         objetosEmColisao.Add(col);
+        sceneUltimoObjetoEmContato = col.gameObject.scene.name;
         VerificaInteracaoEntrada(col.gameObject.GetComponent<IInteracao>());
     }
 

@@ -17,6 +17,8 @@ namespace Assets.Scripts.Player
         // Recebe o id do ultimo objeto que o player esteve em contato.
         int ultimoObjetoEmContato { get; }
 
+        string sceneUltimoObjetoEmContato { get; }
+
         // Mata o player.
         void Morte();
 

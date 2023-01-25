@@ -9,9 +9,13 @@ public class InterfaceManager : MonoBehaviour
     //[SerializeField] private string faseJogo;
     public void NovoJogo(){
         //SceneManager.LoadScene(faseJogo);
-        SceneManager.LoadScene("Global");
-        SceneManager.LoadSceneAsync("Test", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Fase 0", LoadSceneMode.Additive);
+        
+        SceneManager.LoadScene("Fase 0");
+        SceneManager.LoadSceneAsync("sala 1", LoadSceneMode.Additive);
+        //SceneManager.LoadSceneAsync("sala 2", LoadSceneMode.Additive);
+        //SceneManager.LoadSceneAsync("sala 3", LoadSceneMode.Additive);
+        //SceneManager.LoadSceneAsync("sala 4", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Global", LoadSceneMode.Additive);
     }
 
     public void Salvar(){
