@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Assets.Scripts.Enumeradores;
 using Assets.Scripts.Player;
+using System.IO;
 
 public class PauseInterface : MonoBehaviour, IPauseInterface
 {
@@ -54,9 +55,22 @@ public class PauseInterface : MonoBehaviour, IPauseInterface
     public void SaveGame()
     { 
         var player = GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value).GetComponent<IPlayer>();
-        Debug.Log("Awake:" + player.sceneUltimoObjetoEmContato);
+        
+        //  Debug.Log("Cor:" + player.sceneUltimoObjetoEmContato);
+        //     Debug.Log("====> " + SaveData.current.profile.ultimaSala + "  ddddd");
+        
+        string filePath = Application.persistentDataPath + "/gameSave.txt";
+        if (!File.Exists(filePath))
+        {
+            File.Create(filePath).Dispose();
+        }
 
-        SaveData.current.profile.ultimaSala = player.sceneUltimoObjetoEmContato;
-    
+        //string saveData = numeroDaSala + "," + numeroCores;
+        string saveData =  player.GetPosicao().x + "," + player.GetPosicao().y + "," +player.GetPosicao().z;
+      
+        Debug.Log("===> " + saveData);
+        File.WriteAllText(filePath, saveData);
     }
+
+   
 }

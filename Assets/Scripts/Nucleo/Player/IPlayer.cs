@@ -45,5 +45,7 @@ namespace Assets.Scripts.Player
 
         // A cor atual do player.
         Color CorDoPlayer();
+
+        void LoadPosition();
     }
 }

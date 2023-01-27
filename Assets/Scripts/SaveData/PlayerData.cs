@@ -7,7 +7,7 @@ public class PlayerData
 {
     public string nomeDoJogo;
     public string ultimaSala;
-    public bool vermelho;
-    public bool azul;
-    public bool amarelo;
+    public int vermelho = 2;
+    public int azul;
+    public int amarelo;
 }

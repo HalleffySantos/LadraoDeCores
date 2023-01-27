@@ -7,6 +7,7 @@ using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 // Script referente as reponsábilidade do player.
 public class Player : MonoBehaviour, IPlayer
@@ -358,6 +359,27 @@ public class Player : MonoBehaviour, IPlayer
     private void EncerraPulo()
     {
         pulou = false;
+    }
+
+    public void LoadPosition()
+    {
+        string filePath = Application.persistentDataPath + "/gameSave.txt";
+        if (File.Exists(filePath))
+        {
+            string saveData = File.ReadAllText(filePath);
+            string[] data = saveData.Split(',');
+
+            float x = float.Parse(data[0]);
+            float y = float.Parse(data[1]);
+
+            transform.position = new Vector3(x, y + 2, -10);
+    
+        }
+        else
+        {
+            Debug.LogError("Arquivo não encontrado");
+        }
+
     }
 
 }

@@ -4,6 +4,7 @@ using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
 using UnityEngine;
 
+
 // Script referente as reponsábilidades da arma.
 public class Arma : MonoBehaviour, IArma
 {

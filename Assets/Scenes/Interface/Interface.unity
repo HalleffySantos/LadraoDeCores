@@ -609,7 +609,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1474654655}
         m_TargetAssemblyTypeName: InterfaceManager, Assembly-CSharp
-        m_MethodName: Jogar
+        m_MethodName: LoadGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

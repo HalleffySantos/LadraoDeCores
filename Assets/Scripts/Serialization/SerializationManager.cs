@@ -35,8 +35,6 @@ public class SerializationManager : MonoBehaviour
         formatter.Serialize(file, saveData);
         file.Close();
 
-
-
         return true;
     }
 
