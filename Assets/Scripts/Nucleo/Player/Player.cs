@@ -134,6 +134,10 @@ public class Player : MonoBehaviour, IPlayer
     public void ComecaEscalarParede()
     {
         animatorPlayer.SetBool(TriggersAnimacaoPlayer.Escalar.Value, true);
+
+        playerRigidbody.velocity = new Vector2(0, 0);
+        playerRigidbody.angularVelocity = 0;
+
         playerRigidbody.gravityScale = 0.1f;
     }
 
@@ -150,7 +154,8 @@ public class Player : MonoBehaviour, IPlayer
     {
         var dir = new Vector3();
         //dir.y = direcaoMovimento.y == 0 ? 0 : (direcaoMovimento.y > 0 ? 1 : -1);
-        dir.y = direcaoMovimento.y == 0 ? 0 : (direcaoMovimento.y > 0 ? 1 : -1);
+        //dir.y = direcaoMovimento.y == 0 ? 0 : (direcaoMovimento.y > 0 ? 1 : -1);
+        dir.y = -1;
 
         playerRigidbody.velocity = new Vector2(0, 0);
         playerRigidbody.angularVelocity = 0;
