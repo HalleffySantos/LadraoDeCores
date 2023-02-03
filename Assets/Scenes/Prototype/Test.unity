@@ -3703,6 +3703,7 @@ GameObject:
   - component: {fileID: 692917525}
   - component: {fileID: 692917527}
   - component: {fileID: 692917526}
+  - component: {fileID: 692917528}
   m_Layer: 0
   m_Name: Boss Ave
   m_TagString: BossAve
@@ -3719,7 +3720,7 @@ Transform:
   m_GameObject: {fileID: 692917522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 82.65, y: 34.59, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 926130706}
@@ -3766,7 +3767,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -304451690, guid: 9899b7046c7e6f1449e454aa93680929, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3824,19 +3825,39 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00440979, y: 0.015426636}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.62, y: 0.6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6033478, y: 0.598938}
   m_EdgeRadius: 0
+--- !u!95 &692917528
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692917522}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 903eb64ac3f2f31488dcf1f9f3940154, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &696868567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6953,8 +6974,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1111567361}
     m_Modifications:
     - target: {fileID: 3096143364321571483, guid: a423d231e4ee6ab46bc8f48d23309897, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096143364321571483, guid: a423d231e4ee6ab46bc8f48d23309897, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -0.98
       objectReference: {fileID: 0}
     - target: {fileID: 3096143364605667705, guid: a423d231e4ee6ab46bc8f48d23309897, type: 3}
       propertyPath: m_RootOrder
@@ -7029,8 +7054,12 @@ PrefabInstance:
       value: -1.438323
       objectReference: {fileID: 0}
     - target: {fileID: 3096143364879888901, guid: a423d231e4ee6ab46bc8f48d23309897, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096143364879888901, guid: a423d231e4ee6ab46bc8f48d23309897, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -0.97
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a423d231e4ee6ab46bc8f48d23309897, type: 3}
@@ -14123,25 +14152,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3096143364605667708, guid: a423d231e4ee6ab46bc8f48d23309897, type: 3}
-      propertyPath: limiteDireita
-      value: 5.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3096143364605667708, guid: a423d231e4ee6ab46bc8f48d23309897, type: 3}
-      propertyPath: limiteEsquerda
-      value: -9.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3096143364605667708, guid: a423d231e4ee6ab46bc8f48d23309897, type: 3}
-      propertyPath: velocidadeInimigo
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 3096143364605667709, guid: a423d231e4ee6ab46bc8f48d23309897, type: 3}
       propertyPath: m_Name
       value: Ave
-      objectReference: {fileID: 0}
-    - target: {fileID: 3096143364605667710, guid: a423d231e4ee6ab46bc8f48d23309897, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a423d231e4ee6ab46bc8f48d23309897, type: 3}

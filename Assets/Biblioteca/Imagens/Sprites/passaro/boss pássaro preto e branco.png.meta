@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e4407a7778b305d49b42886b23207021
+guid: 9899b7046c7e6f1449e454aa93680929
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 80
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,85 +117,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "ch\xE3o vila preto e branco 2_0"
+      name: "boss p\xE1ssaro preto e branco_0"
       rect:
         serializedVersion: 2
-        x: 7
-        y: 8
-        width: 82
-        height: 80
+        x: 14
+        y: 22
+        width: 62
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66ffd05fefae0ef4781e6431626adaa3
-      internalID: 358589837
+      spriteID: 742e4478932e2144db396f14d44044e0
+      internalID: -304451690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ch\xE3o vila preto e branco 2_1"
+      name: "boss p\xE1ssaro preto e branco_1"
       rect:
         serializedVersion: 2
-        x: 103
-        y: 8
-        width: 82
-        height: 80
+        x: 110
+        y: 24
+        width: 68
+        height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0862d9cb180d3af4a83eacac87233e02
-      internalID: -2139440477
+      spriteID: 4d0ba2f47678d4947bcef57d9fcc7d33
+      internalID: 383506505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ch\xE3o vila preto e branco 2_2"
+      name: "boss p\xE1ssaro preto e branco_2"
       rect:
         serializedVersion: 2
-        x: 199
-        y: 8
-        width: 82
-        height: 80
+        x: 206
+        y: 16
+        width: 62
+        height: 52
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dca5e83a97a501b4d905861a63b6d9ec
-      internalID: 679687903
+      spriteID: c7cdbeae452e17f4f884d096773d647b
+      internalID: -806174276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ch\xE3o vila preto e branco 2_3"
+      name: "boss p\xE1ssaro preto e branco_3"
       rect:
         serializedVersion: 2
-        x: 295
-        y: 8
-        width: 82
-        height: 80
+        x: 302
+        y: 20
+        width: 62
+        height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d843eddc8d6e6f41ac87f36d3dd96d2
-      internalID: 74972360
+      spriteID: 98963b70e77fced4eb372b24578ff861
+      internalID: 1060609544
       vertices: []
       indices: 
       edges: []
@@ -211,10 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "ch\xE3o vila preto e branco 2_1": -2139440477
-      "ch\xE3o vila preto e branco 2_3": 74972360
-      "ch\xE3o vila preto e branco 2_2": 679687903
-      "ch\xE3o vila preto e branco 2_0": 358589837
+      "boss p\xE1ssaro preto e branco_1": 383506505
+      "boss p\xE1ssaro preto e branco_2": -806174276
+      "boss p\xE1ssaro preto e branco_0": -304451690
+      "boss p\xE1ssaro preto e branco_3": 1060609544
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
