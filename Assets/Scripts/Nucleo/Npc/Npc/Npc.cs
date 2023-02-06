@@ -53,9 +53,7 @@ public class Npc : MonoBehaviour, IInteracao
         var player = tObject.GetComponent<IPlayer>();
         if (player != null && player.movimentoHabilitado && Input.GetKeyDown(KeyCode.E))
         {
-            player.movimentoHabilitado = false;
-            caixaDeDialogo.AparecerComACaixaDeDialogo();
-            nodeParser.ExecuteDialogo(dialogueGraph);
+            Dialogo(player);
         }
     }
 
@@ -93,6 +91,13 @@ public class Npc : MonoBehaviour, IInteracao
 
             texto.color = new Color(texto.color.r, texto.color.g, texto.color.b, 0);
         }
+    }
+
+    internal void Dialogo(IPlayer player)
+    {
+        player.movimentoHabilitado = false;
+        caixaDeDialogo.AparecerComACaixaDeDialogo();
+        nodeParser.ExecuteDialogo(dialogueGraph);
     }
 }
  

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,14 +9,20 @@ namespace Assets.Scripts.Npc.CaixaDeDialogo
     {
         private SpriteRenderer[] sprites;
 
-        private Text[] textos;
+        private TextMeshProUGUI[] textos;
+
+        private Image[] imagens;
+
+        private Animator animator;
 
 
         // Start is called before the first frame update
         void Start()
         {
             sprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
-            textos = gameObject.GetComponentsInChildren<Text>();
+            textos = gameObject.GetComponentsInChildren<TextMeshProUGUI>();
+            imagens = gameObject.GetComponentsInChildren<Image>();
+            animator = gameObject.GetComponent<Animator>();
 
             DesaparecerComACaixaDeDialogo();
         }
@@ -23,29 +30,44 @@ namespace Assets.Scripts.Npc.CaixaDeDialogo
         //Desabilita a caixa de dialogo para o player.
         public void DesaparecerComACaixaDeDialogo()
         {
-            foreach(var sprite in sprites)
-            {
-                sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0);
-            }
+            animator.SetBool("IsOpen", false);
 
-            foreach(var texto in textos)
-            {
-                texto.color = new Color(texto.color.r, texto.color.g, texto.color.b, 0);
-            }
+            // foreach(var sprite in sprites)
+            // {
+            //     sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0);
+            // }
+
+            // Debug.Log(textos.Length);
+            // foreach(var texto in textos)
+            // {
+            //     texto.color = new Color(texto.color.r, texto.color.g, texto.color.b, 0);
+            // }
+
+            // foreach(var imagem in imagens)
+            // {
+            //     imagem.color = new Color(imagem.color.r, imagem.color.g, imagem.color.b, 0);
+            // }
         }
 
         //Habilita a caixa de dialogo para o player.
         public void AparecerComACaixaDeDialogo()
         {
-            foreach(var sprite in sprites)
-            {
-                sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1.0f);
-            }
+            animator.SetBool("IsOpen", true);
 
-            foreach(var texto in textos)
-            {
-                texto.color = new Color(texto.color.r, texto.color.g, texto.color.b, 1.0f);
-            }
+            // foreach(var sprite in sprites)
+            // {
+            //     sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1.0f);
+            // }
+
+            // foreach(var texto in textos)
+            // {
+            //     texto.color = new Color(texto.color.r, texto.color.g, texto.color.b, 1.0f);
+            // }
+
+            // foreach(var imagem in imagens)
+            // {
+            //     imagem.color = new Color(imagem.color.r, imagem.color.g, imagem.color.b, 1.0f);
+            // }
         }
     }
 }

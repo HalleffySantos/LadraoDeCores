@@ -97,7 +97,7 @@ public class Player : MonoBehaviour, IPlayer
         }
 
         MovimentoHorizontal();
-        ForaDosLimites();
+        //ForaDosLimites();
 
         ConfiguracaoAnimacaoPlayer();
     }
@@ -353,8 +353,8 @@ public class Player : MonoBehaviour, IPlayer
     {
         animatorPlayer.speed = 0;
         SceneManager.LoadScene("Global");
-        SceneManager.LoadSceneAsync("Test", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Fase 0", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
     }
 
     private void EncerraPulo()
