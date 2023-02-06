@@ -10,8 +10,8 @@ public class InterfaceManager : MonoBehaviour
     public void NovoJogo(){
         //SceneManager.LoadScene(faseJogo);
         SceneManager.LoadScene("Global");
-        SceneManager.LoadSceneAsync("Test", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Fase 0", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
     }
 
     public void Salvar(){
