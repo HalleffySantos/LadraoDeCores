@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/vila/v2/Vila.unity
     guid: 30ef0893b8f3d344e916dd0bc216c7dc
+  - enabled: 0
+    path: Assets/Scenes/Cutscenes/Cutscene 01.unity
+    guid: d0059e7c6cba58b4185fb76af3fe3365
   m_configObjects: {}
