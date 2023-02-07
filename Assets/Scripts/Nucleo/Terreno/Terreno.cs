@@ -21,7 +21,6 @@ public class Terreno : MonoBehaviour, IInteracao, ITerreno
     // Método para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
     public virtual void AcaoEntrada(GameObject tObject)
     {
-        Debug.Log("Esta no chao");
         var player = tObject.GetComponent<IPlayer>();
         if (player != null )
         {

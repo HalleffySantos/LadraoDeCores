@@ -52,6 +52,8 @@ public class Player : MonoBehaviour, IPlayer
     private bool podeEscalar;
     private Vector3 dirInicialEscalada;
 
+    private IGameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,6 +82,10 @@ public class Player : MonoBehaviour, IPlayer
         cooldownDash = 1.5f;
 
         podeEscalar = true;
+
+        gameManager = GameObject.FindGameObjectWithTag(GameObjectsTags.GameManagerTag.Value).GetComponent<IGameManager>();
+
+        LoadGamePosition();
     }
 
     // Update is called once per frame
@@ -181,6 +187,19 @@ public class Player : MonoBehaviour, IPlayer
     public Color CorDoPlayer()
     {
         return gameObject.GetComponent<SpriteRenderer>().color;
+    }
+
+    public void SaveGame()
+    {
+        Debug.Log("b");
+
+        var posXPlayer = GetPosicao().x;
+        var posYPlayer = GetPosicao().y;
+
+        PlayerPrefs.SetFloat("posXPlayer", posXPlayer);
+        PlayerPrefs.SetFloat("posYPlayer", posYPlayer);
+
+        Debug.Log("b");
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -368,9 +387,7 @@ public class Player : MonoBehaviour, IPlayer
     private void ConfiguracoesMorte()
     {
         animatorPlayer.speed = 0;
-        SceneManager.LoadScene("Global");
-        SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
+        gameManager.LoadGame();
     }
 
     private void EncerraPulo()
@@ -397,7 +414,6 @@ public class Player : MonoBehaviour, IPlayer
 
             if (mesmaDir)
             {
-                Debug.Log("a");
                 playerRigidbody.velocity = new Vector2(0, 0);
                 playerRigidbody.angularVelocity = 0;
                 estaNoChao = true;
@@ -405,6 +421,30 @@ public class Player : MonoBehaviour, IPlayer
         }
         
         podeEscalar = true;
+    }
+
+    private void LoadGamePosition()
+    {
+        float posY = 0;
+        float posX = 0;
+        int qtd = 0;
+
+        if (PlayerPrefs.HasKey("posYPlayer"))
+        {
+            posY = PlayerPrefs.GetFloat("posYPlayer");
+            qtd++;
+        }
+
+        if (PlayerPrefs.HasKey("posXPlayer"))
+        {
+            posX = PlayerPrefs.GetFloat("posXPlayer");
+            qtd++;
+        }
+
+        if (qtd == 2)
+        {
+            gameObject.transform.position = new Vector3(posX, posY, 0);
+        }
     }
 
 }

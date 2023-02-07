@@ -136,7 +136,6 @@ namespace Assets.Scripts.Infraestrutura
                 
                 case "End":
                     TerminarDialogo();
-                    NextNode("exit");
                     break;
 
                 

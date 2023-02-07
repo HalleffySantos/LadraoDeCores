@@ -1,17 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Enumeradores;
+using Assets.Scripts.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InterfaceManager : MonoBehaviour
 {
-    //[SerializeField] private string faseJogo;
     public void NovoJogo(){
-        //SceneManager.LoadScene(faseJogo);
+        // SceneManager.LoadScene("Global");
+        // SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
+        // SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
+        // SceneManager.LoadSceneAsync("Sala 9", LoadSceneMode.Additive);
+        // SceneManager.LoadSceneAsync("Sala 10", LoadSceneMode.Additive);
+        // SceneManager.LoadSceneAsync("Sala 11", LoadSceneMode.Additive);
+
+        LoadGame();
+    }
+
+    public void LoadGame()
+    {
+        float posYPlayer = 0;
+        float posXPlayer = 0;
+
+        if (PlayerPrefs.HasKey("posYPlayer"))
+        {
+            posYPlayer = PlayerPrefs.GetFloat("posYPlayer");
+        }
+
+        if (PlayerPrefs.HasKey("posXPlayer"))
+        {
+            posXPlayer = PlayerPrefs.GetFloat("posXPlayer");
+        }
+
         SceneManager.LoadScene("Global");
         SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
         SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Sala 9", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Sala 10", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Sala 11", LoadSceneMode.Additive);
     }
 
     public void Salvar(){

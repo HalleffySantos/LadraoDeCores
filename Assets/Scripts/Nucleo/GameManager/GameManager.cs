@@ -2,12 +2,13 @@ using System.Collections.Generic;
 using Assets.Scripts.Enumeradores;
 using Assets.Scripts.Player;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour, IGameManager
 {
     private IPlayer player;
 
-    private IList<Color> coresColetadas; 
+    private IList<Color> coresColetadas;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,16 @@ public class GameManager : MonoBehaviour, IGameManager
     void Update()
     {
         
+    }
+
+    public void LoadGame()
+    {
+        SceneManager.LoadScene("Global");
+        SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Sala 9", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Sala 10", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Sala 11", LoadSceneMode.Additive);
     }
 
     public void NovaCorColetada(Color cor)

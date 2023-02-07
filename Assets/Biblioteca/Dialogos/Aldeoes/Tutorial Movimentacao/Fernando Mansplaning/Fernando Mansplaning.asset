@@ -45,7 +45,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speakerName: Alice Mansplaning
+  speakerName: Fernando Mansplaning
   dailogueLine: E depois o que mais tem, Lucx??
   sprite: {fileID: 0}
 --- !u!114 &-6997279222959514759
@@ -93,7 +93,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speakerName: Alice Mansplaning
+  speakerName: Fernando Mansplaning
   dailogueLine: "Bom dia, Lucx. Voc\xEA quer saber como se move, Lucx?"
   sprite: {fileID: 0}
 --- !u!114 &-4162687347610387545
@@ -141,7 +141,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speakerName: Alice Mansplaning
+  speakerName: Fernando Mansplaning
   dailogueLine: "Lucx, clicar \"espa\xE7o\" tamb\xE9m te faz pular. "
   sprite: {fileID: 0}
 --- !u!114 &-760673033949812579
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cca3a7c5e4aebe43acea7d001805f3a, type: 3}
-  m_Name: Alice Mansplaning
+  m_Name: Fernando Mansplaning
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: -760673033949812579}
@@ -244,7 +244,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speakerName: Alice Mansplaning
+  speakerName: Fernando Mansplaning
   dailogueLine: "At\xE9 ai, simples, n\xE9 Lucx?"
   sprite: {fileID: 0}
 --- !u!114 &3916856675279612780
@@ -292,7 +292,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speakerName: Alice Mansplaning
+  speakerName: Fernando Mansplaning
   dailogueLine: "Simples, n\xE3o, Lucx?!  Agora se v\xE1, que quero voltar a ler
     meu livro em paz. Xo! Xo!"
   sprite: {fileID: 0}
@@ -383,7 +383,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speakerName: Alice Mansplaning
+  speakerName: Fernando Mansplaning
   dailogueLine: "Mas lembre-se de quando aprendeu a andar, Lucx. O ataque \"J\" vai
     na dire\xE7\xE3o que voc\xEA mirar, \"W\" para mirar pra cima, \"A\" para mirar
     a esquerda, \"D\" para mirar \xE0 direita e \"S\" para baixo. Lucx! Voc\xEB pode
@@ -434,9 +434,9 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speakerName: Alice Mansplaning
+  speakerName: Fernando Mansplaning
   dailogueLine: "Ent\xE3o, Lucx. Primeiro voc\xEA clica no bot\xE3o \"A\" para se
-    mover \xE0 esquerda ou o bot\xE3o \"D\" para se mover a direita./"
+    mover \xE0 esquerda ou o bot\xE3o \"D\" para se mover a direita."
   sprite: {fileID: 0}
 --- !u!114 &8096691446110323083
 MonoBehaviour:
@@ -483,7 +483,7 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speakerName: Alice Mansplaning
+  speakerName: Fernando Mansplaning
   dailogueLine: "Voc\xEA pode clicar \"J\" para atacar e clicar \"K\" para realizar
     um avan\xE7o rapido, Lucx."
   sprite: {fileID: 0}

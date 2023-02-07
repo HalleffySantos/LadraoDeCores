@@ -37,5 +37,8 @@ namespace Assets.Scripts.Enumeradores
 
         //Enumerador referente a tag do BossAve.
         public static GameObjectsTags BossAveTag { get { return new GameObjectsTags("BossAve"); } }
+
+        //Enumerador referente a tag a camera.
+        public static GameObjectsTags CameraTag { get { return new GameObjectsTags("MainCamera"); } }
     }
 }

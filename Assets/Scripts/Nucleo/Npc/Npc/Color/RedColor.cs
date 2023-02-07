@@ -5,7 +5,7 @@ using Assets.Scripts.Player;
 using TMPro;
 using UnityEngine;
 
-public class RedColor : Npc 
+public class RedColor : NpcAutomatico
 {
     private IGameManager gameManager;
 
@@ -31,23 +31,22 @@ public class RedColor : Npc
         
     }
 
-    // Metodo para realização da ação chamada pelo OnTriggerStay ou OnCollisionStay.
-    public override void AcaoStay(GameObject tObject)
+    public override void AcaoEntrada(GameObject tObject)
     {
-        var player = tObject.GetComponent<IPlayer>();
-        if (player != null && player.movimentoHabilitado && Input.GetKeyDown(KeyCode.E))
+        if (tObject.GetComponent<IPlayer>() != null)
         {
-            player.movimentoHabilitado = false;
-            caixaDeDialogo.AparecerComACaixaDeDialogo();
-            
-            //gameManager.NovaCorColetada(Color.red);
-            
-            nodeParser.ExecuteDialogo(dialogueGraph);
+            Dialogo(tObject.GetComponent<IPlayer>());
 
             bossAve.ComecaAPerseguir();
 
             Destroy(gameObject);
         }
+    }
+
+    // Metodo para realização da ação chamada pelo OnTriggerStay ou OnCollisionStay.
+    public override void AcaoStay(GameObject tObject)
+    {
+
     }
 }
 
