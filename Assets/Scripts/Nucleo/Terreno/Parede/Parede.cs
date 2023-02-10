@@ -11,6 +11,8 @@ public class Parede : Terreno
 
     void Start()
     {
+
+        
         if (GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value) != null)
         {
             player = GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value).GetComponent<IPlayer>();
@@ -20,39 +22,37 @@ public class Parede : Terreno
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     // Método para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
     public override void AcaoEntrada(GameObject tObject)
     {
-        var player = tObject.GetComponent<IPlayer>();
-        if (player != null && gameObject.GetInstanceID() != player.ultimoObjetoEmContato)
+        var playerRec = tObject.GetComponent<IPlayer>();
+        if (playerRec != null && gameObject.GetInstanceID() != playerRec.ultimoObjetoEmContato)
         {
-            if (player.CorDoPlayer() != Color.white && player.CorDoPlayer() != spriteRenderer.color)
+            if (playerRec.CorDoPlayer() != Color.white && playerRec.CorDoPlayer() != spriteRenderer.color)
             {
-                player.Morte();
+                playerRec.Morte();
             }
 
-            player.estaNoChao = true;
-            player.ComecaEscalarParede();
+            playerRec.estaNoChao = true;
+            playerRec.ComecaEscalarParede();
         }
     }
 
     // Método para realização da ação chamada pelo OnTriggerExit ou OnCollisionExit.
     public override void AcaoSaida(GameObject tObject)
     {
-        var player = tObject.GetComponent<IPlayer>();
-        if (player != null)
+        var playerRec = tObject.GetComponent<IPlayer>();
+        if (playerRec != null)
         {
-            player.estaNoChao = false;
-            player.TerminaEscalarParede();
+            playerRec.estaNoChao = false;
+            playerRec.TerminaEscalarParede();
         }
     }
 
     // Método para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
     public override void AcaoStay(GameObject tObject)
     {
-        
     }
 }

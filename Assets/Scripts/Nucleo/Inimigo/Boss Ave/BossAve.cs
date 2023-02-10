@@ -26,6 +26,8 @@ public class BossAve : MonoBehaviour, IInteracao, IBossAve, IInimigo
 
     private IGameManager gameManager;
 
+    private ICamera cameraGame;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,12 +41,19 @@ public class BossAve : MonoBehaviour, IInteracao, IBossAve, IInimigo
             player = GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value).GetComponent<IPlayer>();
         }
 
+        if (GameObject.FindGameObjectWithTag(GameObjectsTags.CameraTag.Value) != null)
+        {
+            cameraGame = GameObject.FindGameObjectWithTag(GameObjectsTags.CameraTag.Value).GetComponent<ICamera>();
+        }
+
         enemyRigidbody = GetComponent<Rigidbody2D>();
 
         enemyRigidbody.gravityScale = 0;
         momentoAnterior = false;
         podePerseguir = false;
-        posParaSeguir = new List<Vector3>();   
+        posParaSeguir = new List<Vector3>();
+
+        LoadBoss();
     }
 
     // Update is called once per frame
@@ -76,6 +85,13 @@ public class BossAve : MonoBehaviour, IInteracao, IBossAve, IInimigo
     public void ComecaAPerseguir()
     {
         podePerseguir = true;
+        cameraGame.AlternarModoDeCamera();
+    }
+
+    public void SaveBossState()
+    {
+        int persegue = podePerseguir ? 1 : 0;
+        PlayerPrefs.SetInt("podePerseguir", persegue);
     }
 
     private void FollowPlayer()
@@ -89,6 +105,7 @@ public class BossAve : MonoBehaviour, IInteracao, IBossAve, IInimigo
 
         if (!momentoAnterior)
         {
+            SaveBossState();
             momentoAnterior = true;
             tempoInicioBusca = Time.time;
             direcaoInicial = gameObject.transform.position - posParaSeguir[0];
@@ -109,9 +126,30 @@ public class BossAve : MonoBehaviour, IInteracao, IBossAve, IInimigo
 
     private void EstaVivo()
     {
-        if (gameObject.transform.position.x < -5.5 && gameObject.transform.position.y < 5.5)
+        if (gameObject.transform.position.x < 70 && gameObject.transform.position.y < 7)
         {
+            cameraGame.AlternarModoDeCamera();
+
+            podePerseguir = false;
+            SaveBossState();
+
             Destroy(gameObject);
+        }
+    }
+
+    private void LoadBoss()
+    {
+        bool persegue = false;
+
+        if (PlayerPrefs.HasKey("podePerseguir"))
+        {
+            var aux = PlayerPrefs.GetInt("podePerseguir");
+            persegue = (aux == 1) ? true : false;
+        }
+
+        if (persegue)
+        {
+            podePerseguir = true;
         }
     }
 

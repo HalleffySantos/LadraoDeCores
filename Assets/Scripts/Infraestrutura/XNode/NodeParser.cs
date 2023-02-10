@@ -3,6 +3,7 @@ using Assets.Scripts.Enumeradores;
 using Assets.Scripts.Infraestrutura.Nodes;
 using Assets.Scripts.Npc.CaixaDeDialogo;
 using Assets.Scripts.Player;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using XNode;
@@ -12,9 +13,9 @@ namespace Assets.Scripts.Infraestrutura
     // Responsável por passar pelos nós de um diálogo em tempo de execução.
     public class NodeParser : MonoBehaviour, INodeParser
     {
-        public Text speaker;
+        public TextMeshProUGUI speaker;
 
-        public Text dialogue;
+        public TextMeshProUGUI dialogue;
 
         private Coroutine _parser;
 
@@ -24,11 +25,14 @@ namespace Assets.Scripts.Infraestrutura
 
         private DialogueGraph graph;
 
+        private bool isTypeSentenceInUse;
+
         // Start is called before the first frame update 
         void Start()
         {
             player = GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value).GetComponent<IPlayer>();
             caixaDeDialogo = GameObject.FindGameObjectWithTag(GameObjectsTags.CaixaDeDialogoTag.Value).GetComponent<ICaixaDeDialogo>();
+            isTypeSentenceInUse = false;
         }
 
         // Dialogo, se existir, comeca a ser executado.
@@ -93,7 +97,9 @@ namespace Assets.Scripts.Infraestrutura
                 
                 case "DialogueNode":
                     speaker.text = dataParts[1];
-                    dialogue.text = dataParts[2];
+                    StartCoroutine(TypeSentence(dataParts[2]));
+
+                    yield return new WaitUntil(() => !isTypeSentenceInUse);
 
                     yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
                     yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Space));
@@ -130,13 +136,11 @@ namespace Assets.Scripts.Infraestrutura
                 
                 case "End":
                     TerminarDialogo();
-                    NextNode("exit");
                     break;
 
                 
                 default:
                     break;
-
             }
             
         }
@@ -148,6 +152,20 @@ namespace Assets.Scripts.Infraestrutura
                 caixaDeDialogo.DesaparecerComACaixaDeDialogo();
                 player.movimentoHabilitado = true;
             }
+        }
+
+        private IEnumerator TypeSentence(string sentence)
+        {
+            isTypeSentenceInUse = true;
+            dialogue.text = "";
+
+            foreach (char letter in sentence.ToCharArray())
+            {
+                dialogue.text += letter;
+                yield return new WaitForSeconds(.015f);
+            }
+
+            isTypeSentenceInUse = false;
         }
     }
 }

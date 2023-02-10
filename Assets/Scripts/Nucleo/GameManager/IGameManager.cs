@@ -6,4 +6,6 @@ public interface IGameManager
 
     public void ResetaInimigos();
 
+    public void LoadGame();
+
 }

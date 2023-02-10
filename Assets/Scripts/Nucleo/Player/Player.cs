@@ -32,6 +32,8 @@ public class Player : MonoBehaviour, IPlayer
     private float velocidadeMaxPlayer;
 
     private float forcaPulo;
+    
+    private bool podePular;
 
     private float limiteInferior;
 
@@ -46,6 +48,11 @@ public class Player : MonoBehaviour, IPlayer
     private float forcaDash;
     private float tempoDash;
     private float cooldownDash;
+
+    private bool podeEscalar;
+    private Vector3 dirInicialEscalada;
+
+    private IGameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +73,7 @@ public class Player : MonoBehaviour, IPlayer
         objetosEmContato = new List<Collider2D>();
         objetosEmColisao = new List<Collision2D>();
         pulou = false;
+        podePular = true;
 
         podeDash = true;
         estaNoDash = false;
@@ -73,7 +81,11 @@ public class Player : MonoBehaviour, IPlayer
         tempoDash = 0.2f;
         cooldownDash = 1.5f;
 
-        
+        podeEscalar = true;
+
+        gameManager = GameObject.FindGameObjectWithTag(GameObjectsTags.GameManagerTag.Value).GetComponent<IGameManager>();
+
+        LoadGamePosition();
     }
 
     // Update is called once per frame
@@ -86,7 +98,8 @@ public class Player : MonoBehaviour, IPlayer
 
         MovimentoPular();
         MovimentoDash();
-        VerificaAcaoStay();    
+        VerificaAcaoStay();
+        EscalaParede();
     }
 
     void FixedUpdate()
@@ -97,7 +110,7 @@ public class Player : MonoBehaviour, IPlayer
         }
 
         MovimentoHorizontal();
-        ForaDosLimites();
+        //ForaDosLimites();
 
         ConfiguracaoAnimacaoPlayer();
     }
@@ -139,9 +152,10 @@ public class Player : MonoBehaviour, IPlayer
         playerRigidbody.angularVelocity = 0;
 
         playerRigidbody.gravityScale = 0.1f;
-    }
 
-    
+        dirInicialEscalada = new Vector3(direcaoMovimento.x, direcaoMovimento.y, 0);
+    }
+  
     // Configurações para o player parar de se prender a uma parede.
     public void TerminaEscalarParede()
     {
@@ -166,7 +180,6 @@ public class Player : MonoBehaviour, IPlayer
     // Instance id do terreno que o player está em contato.
     public int TerrenoEmContato()
     {
-        Debug.Log(objetosEmColisao.Count);
         return objetosEmColisao.Where(x => x.gameObject.GetComponent<ITerreno>() != null).FirstOrDefault().gameObject.GetInstanceID();
     }
 
@@ -174,6 +187,19 @@ public class Player : MonoBehaviour, IPlayer
     public Color CorDoPlayer()
     {
         return gameObject.GetComponent<SpriteRenderer>().color;
+    }
+
+    public void SaveGame()
+    {
+        Debug.Log("b");
+
+        var posXPlayer = GetPosicao().x;
+        var posYPlayer = GetPosicao().y;
+
+        PlayerPrefs.SetFloat("posXPlayer", posXPlayer);
+        PlayerPrefs.SetFloat("posYPlayer", posYPlayer);
+
+        Debug.Log("b");
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -235,14 +261,23 @@ public class Player : MonoBehaviour, IPlayer
 
     private void MovimentoPular()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && estaNoChao)
+        if (Input.GetKeyDown(KeyCode.Space) && estaNoChao && podePular)
         {
-            pulou = true;
-            estaNoChao = false;
-            playerRigidbody.velocity = new Vector2(0, 0);
-            playerRigidbody.angularVelocity = 0;
-            playerRigidbody.AddForce(Vector3.up * forcaPulo, ForceMode2D.Impulse);
+            StartCoroutine(Pulo());
         }
+    }
+
+    private IEnumerator Pulo()
+    {
+        podePular = false;
+        pulou = true;
+        estaNoChao = false;
+        playerRigidbody.velocity = new Vector2(0, 0);
+        playerRigidbody.angularVelocity = 0;
+        playerRigidbody.AddForce(Vector3.up * forcaPulo, ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(0.5f);
+        podePular = true;
     }
 
     private void MovimentoDash()
@@ -352,14 +387,64 @@ public class Player : MonoBehaviour, IPlayer
     private void ConfiguracoesMorte()
     {
         animatorPlayer.speed = 0;
-        SceneManager.LoadScene("Global");
-        SceneManager.LoadSceneAsync("Test", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Fase 0", LoadSceneMode.Additive);
+        gameManager.LoadGame();
     }
 
     private void EncerraPulo()
     {
         pulou = false;
+    }
+
+    private void EscalaParede()
+    {
+        if (podeEscalar)
+        {
+            StartCoroutine(ConfEscalaParede());
+        }
+    }
+
+    private IEnumerator ConfEscalaParede()
+    {
+        if (animatorPlayer.GetBool(TriggersAnimacaoPlayer.Escalar.Value))
+        {
+            podeEscalar = false;
+            yield return new WaitForSeconds(0.2f);
+
+            bool mesmaDir = (direcaoMovimento.x > 0 && dirInicialEscalada.x > 0) ? true : (direcaoMovimento.x < 0 && dirInicialEscalada.x < 0) ? true : (direcaoMovimento.x == 0 && direcaoMovimento.y == 0) ? true : false;
+
+            if (mesmaDir)
+            {
+                playerRigidbody.velocity = new Vector2(0, 0);
+                playerRigidbody.angularVelocity = 0;
+                estaNoChao = true;
+            }
+        }
+        
+        podeEscalar = true;
+    }
+
+    private void LoadGamePosition()
+    {
+        float posY = 0;
+        float posX = 0;
+        int qtd = 0;
+
+        if (PlayerPrefs.HasKey("posYPlayer"))
+        {
+            posY = PlayerPrefs.GetFloat("posYPlayer");
+            qtd++;
+        }
+
+        if (PlayerPrefs.HasKey("posXPlayer"))
+        {
+            posX = PlayerPrefs.GetFloat("posXPlayer");
+            qtd++;
+        }
+
+        if (qtd == 2)
+        {
+            gameObject.transform.position = new Vector3(posX, posY, 0);
+        }
     }
 
 }
