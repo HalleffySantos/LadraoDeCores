@@ -6,9 +6,10 @@ public class GameSaver : NpcAutomatico
 {
     private IPlayer player;
 
-    
-    void Start()
+    public override void Start()
     {
+        base.Start();
+
         player = GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value).GetComponent<IPlayer>();
     }
 
@@ -16,7 +17,12 @@ public class GameSaver : NpcAutomatico
     {
         if (tObject.GetComponent<IPlayer>() != null)
         {
-            //Dialogo(tObject.GetComponent<IPlayer>());
+            if (!PlayerPrefs.HasKey("primeiroDialogoPlayerSave"))
+            {
+                Dialogo(tObject.GetComponent<IPlayer>());
+                PlayerPrefs.SetInt("primeiroDialogoPlayerSave", 1);
+            }
+
             player.SaveGame();
         }
     }

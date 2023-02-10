@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class Espeto : Terreno
 {
+    public AudioClip somHit;
+    private AudioSource audioSource;
     private IPlayer player;
 
     // Start is called before the first frame update
@@ -16,6 +18,8 @@ public class Espeto : Terreno
         {
             player = GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value).GetComponent<IPlayer>();
         }
+
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,6 +39,7 @@ public class Espeto : Terreno
 
         if(tObject.GetComponent<IArma>() != null)
         {
+            audioSource.PlayOneShot(somHit);
             player.RecuoVertical();
         }
     }

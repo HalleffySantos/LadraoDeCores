@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 17c4bd1276a3ae642a107ffe3d0c7499
+guid: e52687a96a3e8044eb548ecfe88e700e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -139,7 +139,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: cutscene sem brilho_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 963
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f20c0001d4f43ff499fd9f476f51b9f7
+      internalID: -1338797963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cutscene sem brilho_1
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 0
+        width: 965
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a520163e409e79041a93b656832ecb2c
+      internalID: 1193695371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cutscene sem brilho_2
+      rect:
+        serializedVersion: 2
+        x: 1957
+        y: 0
+        width: 965
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21347f2e98de6734e9e448a3b7354d94
+      internalID: -1753963586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cutscene sem brilho_3
+      rect:
+        serializedVersion: 2
+        x: 2930
+        y: 0
+        width: 963
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 653291ff66a282847a280ab4217452da
+      internalID: 519689697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -150,7 +234,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cutscene sem brilho_1: 1193695371
+      cutscene sem brilho_0: -1338797963
+      cutscene sem brilho_2: -1753963586
+      cutscene sem brilho_3: 519689697
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -12,7 +12,7 @@ public class RedColor : NpcAutomatico
     private IBossAve bossAve;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
         nodeParser = GameObject.FindGameObjectWithTag(GameObjectsTags.NodeParserTag.Value).GetComponent<INodeParser>();
         caixaDeDialogo = GameObject.FindGameObjectWithTag(GameObjectsTags.CaixaDeDialogoTag.Value).GetComponent<ICaixaDeDialogo>();
