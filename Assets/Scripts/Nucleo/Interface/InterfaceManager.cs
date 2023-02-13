@@ -8,6 +8,38 @@ using UnityEngine.UI;
 
 public class InterfaceManager : MonoBehaviour
 {
+
+    public float fadeTime = 1f;
+    private Button button;
+    private CanvasGroup canvasGroup;
+
+    void Start()
+    {
+        button = GetComponent<Button>();
+        canvasGroup = GetComponent<CanvasGroup>();
+        button.onClick.AddListener(FadeOut);
+    }
+
+    public void FadeOut()
+    {
+        StartCoroutine(FadeOutCoroutine());
+    }
+
+    IEnumerator FadeOutCoroutine()
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < fadeTime)
+        {
+            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeTime);
+            canvasGroup.alpha = alpha;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+         LoadGame();
+    }
+
     public void NovoJogo(){
         // SceneManager.LoadScene("Global");
         // SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
@@ -17,6 +49,7 @@ public class InterfaceManager : MonoBehaviour
         // SceneManager.LoadSceneAsync("Sala 11", LoadSceneMode.Additive);
 
         LoadGame();
+        
     }
 
     public void LoadGame()
@@ -34,12 +67,12 @@ public class InterfaceManager : MonoBehaviour
             posXPlayer = PlayerPrefs.GetFloat("posXPlayer");
         }
 
-        SceneManager.LoadScene("Global");
-        SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Sala 9", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Sala 10", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Sala 11", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Intro");
+        // SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
+        // SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
+        // SceneManager.LoadSceneAsync("Sala 9", LoadSceneMode.Additive);
+        // SceneManager.LoadSceneAsync("Sala 10", LoadSceneMode.Additive);
+        // SceneManager.LoadSceneAsync("Sala 11", LoadSceneMode.Additive);
     }
 
     public void Salvar(){
@@ -56,3 +89,4 @@ public class InterfaceManager : MonoBehaviour
         //Application.Quit();
     }
 }
+
