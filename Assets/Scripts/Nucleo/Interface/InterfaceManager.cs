@@ -9,35 +9,39 @@ using UnityEngine.UI;
 public class InterfaceManager : MonoBehaviour
 {
 
-    public float fadeTime = 1f;
-    private Button button;
-    private CanvasGroup canvasGroup;
-
-    void Start()
-    {
-        button = GetComponent<Button>();
-        canvasGroup = GetComponent<CanvasGroup>();
-        button.onClick.AddListener(FadeOut);
-    }
+    public CanvasGroup canvasGroup;
+     public CanvasGroup canvasGroupBackground;
 
     public void FadeOut()
     {
-        StartCoroutine(FadeOutCoroutine());
+        StartCoroutine(FadeOutBackground());
+        StartCoroutine(FadeOutMenu());
+        //Invoke("StartCoroutine(FadeOutBackground())", 3f);
+        Invoke("LoadGame", 5f);
     }
 
-    IEnumerator FadeOutCoroutine()
+     IEnumerator FadeOutBackground()
     {
-        float elapsedTime = 0f;
-        while (elapsedTime < fadeTime)
-        {
-            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeTime);
-            canvasGroup.alpha = alpha;
-            elapsedTime += Time.deltaTime;
+        //CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
+        while (canvasGroupBackground.alpha>0){
+            canvasGroupBackground.alpha -= Time.deltaTime / 2;
             yield return null;
         }
+
+        canvasGroupBackground.interactable = false;
+        yield return null;
+    }
+
+    IEnumerator FadeOutMenu()
+    {
+        //CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
+        while (canvasGroup.alpha>0){
+            canvasGroup.alpha -= Time.deltaTime / 2;
+            yield return null;
+        }
+
         canvasGroup.interactable = false;
-        canvasGroup.blocksRaycasts = false;
-         LoadGame();
+        yield return null;
     }
 
     public void NovoJogo(){
