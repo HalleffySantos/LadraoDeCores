@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Montanha/sala 11.unity
     guid: 95114a79f79166546a5a569647469a7a
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Entrada/CutsceneInicio.unity
+    guid: 10b8a66490d4f3b429906e835f0edde2
+  - enabled: 1
+    path: Assets/Scenes/Global/Camera.unity
+    guid: 5ca1220d3d4962f4fabdd401ca7bbd93
   m_configObjects: {}

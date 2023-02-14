@@ -85,7 +85,6 @@ public class BossAve : MonoBehaviour, IInteracao, IBossAve, IInimigo
     public void ComecaAPerseguir()
     {
         podePerseguir = true;
-        cameraGame.AlternarModoDeCamera();
     }
 
     public void SaveBossState()
@@ -128,8 +127,6 @@ public class BossAve : MonoBehaviour, IInteracao, IBossAve, IInimigo
     {
         if (gameObject.transform.position.x < 70 && gameObject.transform.position.y < 7)
         {
-            cameraGame.AlternarModoDeCamera();
-
             podePerseguir = false;
             SaveBossState();
 

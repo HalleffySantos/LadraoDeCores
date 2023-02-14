@@ -19,7 +19,7 @@ public class Npc : MonoBehaviour, IInteracao
     internal TextMeshPro[] caixaExplicativaTexto;
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         nodeParser = GameObject.FindGameObjectWithTag(GameObjectsTags.NodeParserTag.Value).GetComponent<INodeParser>();
         caixaDeDialogo = GameObject.FindGameObjectWithTag(GameObjectsTags.CaixaDeDialogoTag.Value).GetComponent<ICaixaDeDialogo>();
@@ -96,6 +96,7 @@ public class Npc : MonoBehaviour, IInteracao
     internal void Dialogo(IPlayer player)
     {
         player.movimentoHabilitado = false;
+        Debug.Log(caixaDeDialogo.ToString());
         caixaDeDialogo.AparecerComACaixaDeDialogo();
         nodeParser.ExecuteDialogo(dialogueGraph);
     }

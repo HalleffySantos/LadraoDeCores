@@ -17,7 +17,6 @@ MonoBehaviour:
   ports:
     keys:
     - entry
-    - exit
     values:
     - _fieldName: entry
       _node: {fileID: -2206974636720508193}
@@ -31,17 +30,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: -2206974636720508193}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
   entry: 0
-  exit: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,8 +147,8 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speakerName: Antonio Viajante
-  dailogueLine: "Por algum motivo elas n\xE3o levam dano quando s\xE3o atacadas,
-    parece que s\xE3o velozes demais e se esquivam muito r\xE1pido."
+  dailogueLine: "Cuidado, Elas s\xE3o muito velozes para serem atacadas e conseguem
+    desviar facilmente."
   sprite: {fileID: 0}
 --- !u!114 &1324308424429078800
 MonoBehaviour:
@@ -286,9 +275,9 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speakerName: Antonio Viajante
-  dailogueLine: "O lado bom \xE9 que a regi\xE3o que elas est\xE3o olhando fica demarcarda
-    no ch\xE3o, ent\xE3o \xE9 s\xF3 tomar cuidado evitar essas regi\xF5es que d\xE1
-    pra avan\xE7ar."
+  dailogueLine: "O lado bom \xE9 que a regi\xE3o que elas avistam fica bem demarcarda
+    pela luz que sai de seus olhos, ent\xE3o \xE9 s\xF3 tomar cuidado, evitar essas
+    regi\xF5es que d\xE1 pra avan\xE7ar."
   sprite: {fileID: 0}
 --- !u!114 &3405062409056666463
 MonoBehaviour:
