@@ -10,26 +10,21 @@ public class InterfaceManager : MonoBehaviour
 {
 
     public CanvasGroup canvasGroup;
-     public CanvasGroup canvasGroupBackground;
+    public CanvasGroup canvasGroupBackground;
+    public Animator animator;
+
 
     public void FadeOut()
     {
-        StartCoroutine(FadeOutBackground());
         StartCoroutine(FadeOutMenu());
-        //Invoke("StartCoroutine(FadeOutBackground())", 3f);
-        Invoke("LoadGame", 5f);
+        Invoke("FadeOutBackground", 3f);
+        Invoke("LoadGame", 8f);
     }
 
-     IEnumerator FadeOutBackground()
-    {
-        //CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
-        while (canvasGroupBackground.alpha>0){
-            canvasGroupBackground.alpha -= Time.deltaTime / 2;
-            yield return null;
-        }
 
-        canvasGroupBackground.interactable = false;
-        yield return null;
+    public void FadeOutBackground()
+    {
+       animator.SetTrigger("FadeOut");
     }
 
     IEnumerator FadeOutMenu()
