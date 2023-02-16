@@ -17,8 +17,8 @@ public class InterfaceManager : MonoBehaviour
     public void FadeOut()
     {
         StartCoroutine(FadeOutMenu());
-        Invoke("FadeOutBackground", 3f);
-        Invoke("LoadGame", 8f);
+        Invoke("FadeOutBackground", 4f);
+        Invoke("LoadGame", 6f);
     }
 
 

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6704611416630861877
+--- !u!114 &-3000562354664775300
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,8 +41,8 @@ MonoBehaviour:
   - m_Version: 1
     m_Start: 0
     m_ClipIn: 0
-    m_Asset: {fileID: 1620568712839853889}
-    m_Duration: 14.6
+    m_Asset: {fileID: 789445492122366631}
+    m_Duration: 34.35
     m_TimeScale: 1
     m_ParentTrack: {fileID: -1534811480125611765}
     m_EaseInDuration: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 14.6
+    m_Start: 34.35
     m_ClipIn: 0
     m_Asset: {fileID: 5998093755994165754}
     m_Duration: 1.4833333333333325
@@ -224,7 +224,7 @@ MonoBehaviour:
     m_DisplayName: NextSceneLoader
   m_Markers:
     m_Objects: []
---- !u!114 &1620568712839853889
+--- !u!114 &789445492122366631
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,11 +237,11 @@ MonoBehaviour:
   m_Name: ControlPlayableAsset
   m_EditorClassIdentifier: 
   sourceGameObject:
-    exposedName: 2caa8b9965f787b439c2b4e3669db72f
+    exposedName: 3edfbde3f30ca5847bb676c1f11b8ae2
     defaultValue: {fileID: 0}
   prefabGameObject: {fileID: 0}
   updateParticle: 1
-  particleRandomSeed: 671
+  particleRandomSeed: 4977
   updateDirector: 1
   updateITimeControl: 1
   searchHierarchy: 0
@@ -270,9 +270,9 @@ MonoBehaviour:
   m_Clips:
   - m_Version: 1
     m_Start: 0
-    m_ClipIn: 15.216666666666667
-    m_Asset: {fileID: -6704611416630861877}
-    m_Duration: 16.083333333333332
+    m_ClipIn: 44.84999999999998
+    m_Asset: {fileID: -3000562354664775300}
+    m_Duration: 35.833333333333336
     m_TimeScale: 1
     m_ParentTrack: {fileID: 3113334940922088416}
     m_EaseInDuration: 0
