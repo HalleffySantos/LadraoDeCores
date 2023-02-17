@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+
 public class InterfaceManager : MonoBehaviour
 {
 
@@ -18,7 +20,7 @@ public class InterfaceManager : MonoBehaviour
     {
         StartCoroutine(FadeOutMenu());
         Invoke("FadeOutBackground", 4f);
-        Invoke("LoadGame", 6f);
+        Invoke("NovoJogo", 6f);
     }
 
 
@@ -39,53 +41,24 @@ public class InterfaceManager : MonoBehaviour
         yield return null;
     }
 
-    public void NovoJogo(){
-        // SceneManager.LoadScene("Global");
-        // SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
-        // SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
-        // SceneManager.LoadSceneAsync("Sala 9", LoadSceneMode.Additive);
-        // SceneManager.LoadSceneAsync("Sala 10", LoadSceneMode.Additive);
-        // SceneManager.LoadSceneAsync("Sala 11", LoadSceneMode.Additive);
-
-        LoadGame();
-        
+    public void NovoJogo()
+    {
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene("Intro");
     }
 
     public void LoadGame()
     {
-        float posYPlayer = 0;
-        float posXPlayer = 0;
-
-        if (PlayerPrefs.HasKey("posYPlayer"))
-        {
-            posYPlayer = PlayerPrefs.GetFloat("posYPlayer");
-        }
-
-        if (PlayerPrefs.HasKey("posXPlayer"))
-        {
-            posXPlayer = PlayerPrefs.GetFloat("posXPlayer");
-        }
-
-        SceneManager.LoadScene("Intro");
-        // SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
-        // SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
-        // SceneManager.LoadSceneAsync("Sala 9", LoadSceneMode.Additive);
-        // SceneManager.LoadSceneAsync("Sala 10", LoadSceneMode.Additive);
-        // SceneManager.LoadSceneAsync("Sala 11", LoadSceneMode.Additive);
+        //GameManager.FirstLoadGame();
     }
 
-    public void Salvar(){
-
-    }
-
-    public void SairJogo(){
-        Debug.Log("Sair do Jogo");
-
+    public void SairJogo(){ 
         //Editor Unity
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
 
         //Jogo Compilado
-        //Application.Quit();
+        Application.Quit();
     }
+
 }
 
