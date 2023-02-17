@@ -6,14 +6,10 @@ using Assets.Scripts.Enumeradores.Animacoes;
 using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 // Script referente as reponsábilidade do player.
 public class Player : MonoBehaviour, IPlayer
 {
-    // Efeito sonoro referente ao pulo.
-    public AudioClip somPuloPlayer;
-
     // Efeito sonoro referente a morte.
     public AudioClip somMortePlayer;
 
@@ -111,6 +107,7 @@ public class Player : MonoBehaviour, IPlayer
         EscalaParede();
     }
 
+    // FixedUpdate is called a predefined number of times per second
     void FixedUpdate()
     {
         if (estaNoDash || !movimentoHabilitado)
@@ -200,6 +197,7 @@ public class Player : MonoBehaviour, IPlayer
         return gameObject.GetComponent<SpriteRenderer>().color;
     }
 
+    // Salva a posição do jogador.
     public void SaveGame()
     {
         var posXPlayer = GetPosicao().x;
@@ -282,7 +280,6 @@ public class Player : MonoBehaviour, IPlayer
         playerRigidbody.velocity = new Vector2(0, 0);
         playerRigidbody.angularVelocity = 0;
         playerRigidbody.AddForce(Vector3.up * forcaPulo, ForceMode2D.Impulse);
-        audioSourcePlayer.PlayOneShot(somPuloPlayer, 0.25f);
 
         yield return new WaitForSeconds(0.5f);
         podePular = true;

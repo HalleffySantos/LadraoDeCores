@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour, IGameManager
         SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
         SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
         SceneManager.LoadSceneAsync("Sala 9", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Sala 10", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Sala 11", LoadSceneMode.Additive);
     }
 
 
@@ -30,17 +28,14 @@ public class GameManager : MonoBehaviour, IGameManager
         SceneManager.UnloadSceneAsync("Vila");
         SceneManager.UnloadSceneAsync("Sala 8");
         SceneManager.UnloadSceneAsync("Sala 9");
-        SceneManager.UnloadSceneAsync("Sala 10");
-        SceneManager.UnloadSceneAsync("Sala 11");
 
         SceneManager.LoadSceneAsync("Global", LoadSceneMode.Additive);
         SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
         SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
         SceneManager.LoadSceneAsync("Sala 9", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Sala 10", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Sala 11", LoadSceneMode.Additive);
     }
 
+    // Chamado quando o objeto é instaciado.
     void Start()
     {
         if (GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value).GetComponent<IPlayer>() != null)

@@ -14,15 +14,11 @@ public class DialogoSkip : MonoBehaviour
     {
         cutscene = GameObject.FindGameObjectWithTag(GameObjectsTags.CutsceneTag.Value).GetComponent<ICutscene>();
         textoSkip = gameObject.GetComponent<TextMeshProUGUI>();
-        textoSkip.color = new Color(textoSkip.color.r, textoSkip.color.g, textoSkip.color.b, 0);
+        textoSkip.color = new Color(textoSkip.color.r, textoSkip.color.g, textoSkip.color.b, 1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (cutscene.estaNoFinalDaCutscene)
-        {
-            textoSkip.color = new Color(textoSkip.color.r, textoSkip.color.g, textoSkip.color.b, 1);
-        }
     }
 }

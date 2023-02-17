@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class Espeto : Terreno
 {
+    //Audio clip referente ao som de quendo o player ataca um espeto.
     public AudioClip somHit;
     private AudioSource audioSource;
     private IPlayer player;

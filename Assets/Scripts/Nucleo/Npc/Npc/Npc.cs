@@ -57,6 +57,7 @@ public class Npc : MonoBehaviour, IInteracao
         }
     }
 
+    // Ativa balão de interação entre o player e o npc.
     internal void AtivaCaixaExplicativa()
     {
         foreach (var sprite in caixaExplicativaSprite)
@@ -70,6 +71,7 @@ public class Npc : MonoBehaviour, IInteracao
         }
     }
 
+    // Desativa balão de interação entre o player e o npc.
     internal void DesativaCaixaExplicativa()
     {
         foreach (var sprite in caixaExplicativaSprite)
@@ -93,6 +95,7 @@ public class Npc : MonoBehaviour, IInteracao
         }
     }
 
+    // Executa o diálogo entre o player e o npc.
     internal void Dialogo(IPlayer player)
     {
         player.movimentoHabilitado = false;

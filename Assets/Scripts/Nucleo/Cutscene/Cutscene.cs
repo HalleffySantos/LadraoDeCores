@@ -17,7 +17,7 @@ public class Cutscene : MonoBehaviour, ICutscene
     // Update is called once per frame
     void Update()
     {
-        if (estaNoFinalDaCutscene && Input.GetKeyDown(KeyCode.E))
+        if (estaNoFinalDaCutscene || Input.GetKeyDown(KeyCode.E))
         {
             GameManager.FirstLoadGame();
         }
@@ -26,7 +26,6 @@ public class Cutscene : MonoBehaviour, ICutscene
     private void EndCutscene()
     {
         estaNoFinalDaCutscene = true;
-        GetComponent<Animator>().SetBool(TriggersAnimacaoCutsceneInicio.FinalCutscene.Value, true);
     }
 
 }

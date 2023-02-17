@@ -8,6 +8,7 @@ using UnityEngine;
 // Script referente a camera.
 public class Camera : MonoBehaviour, ICamera
 {
+    public float variacaoYCameraPlayer = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class Camera : MonoBehaviour, ICamera
         if (GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value) != null)
         {
             var player = GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value).GetComponent<IPlayer>();
-            gameObject.transform.position = new Vector3(player.GetPosicao().x, player.GetPosicao().y + 2.7f, -10);
+            gameObject.transform.position = new Vector3(player.GetPosicao().x, player.GetPosicao().y + variacaoYCameraPlayer, -10);
         }
 
     }

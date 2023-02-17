@@ -44,6 +44,7 @@ namespace Assets.Scripts.Player
         // A cor atual do player.
         Color CorDoPlayer();
 
+        // Salva a posição do jogador.
         void SaveGame();
     }
 }

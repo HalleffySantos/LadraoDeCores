@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Interacao
 {
-    // Responsável por delagar a reponsábilidade de uma colisão ou trigger.
+    // Responsável por delagar a reponsabilidade de uma colisão ou trigger.
     public interface IInteracao
     {        
         // Método para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
