@@ -6,11 +6,13 @@ using Assets.Scripts.Enumeradores.Animacoes;
 using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 // Script referente as reponsábilidade do player.
 public class Player : MonoBehaviour, IPlayer
 {
+    // Efeito sonoro referente a morte.
+    public AudioClip somMortePlayer;
+
     // Recebe a direção que o player está se movendo.
     public Vector3 direcaoMovimento { get; private set; }
     
@@ -54,6 +56,8 @@ public class Player : MonoBehaviour, IPlayer
 
     private IGameManager gameManager;
 
+    private AudioSource audioSourcePlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +73,7 @@ public class Player : MonoBehaviour, IPlayer
         playerRigidbody = gameObject.GetComponent<Rigidbody2D>();
         animatorPlayer = gameObject.GetComponent<Animator>();
         playerTr = gameObject.GetComponent<TrailRenderer>();
+        audioSourcePlayer = gameObject.GetComponent<AudioSource>();
 
         objetosEmContato = new List<Collider2D>();
         objetosEmColisao = new List<Collision2D>();
@@ -102,6 +107,7 @@ public class Player : MonoBehaviour, IPlayer
         EscalaParede();
     }
 
+    // FixedUpdate is called a predefined number of times per second
     void FixedUpdate()
     {
         if (estaNoDash || !movimentoHabilitado)
@@ -121,6 +127,8 @@ public class Player : MonoBehaviour, IPlayer
         movimentoHabilitado = false;
         playerRigidbody.velocity = new Vector2(0, 0);
         playerRigidbody.gravityScale = 0;
+
+        audioSourcePlayer.PlayOneShot(somMortePlayer);
 
         animatorPlayer.SetBool(TriggersAnimacaoPlayer.Morte.Value, true);
     }
@@ -189,17 +197,14 @@ public class Player : MonoBehaviour, IPlayer
         return gameObject.GetComponent<SpriteRenderer>().color;
     }
 
+    // Salva a posição do jogador.
     public void SaveGame()
     {
-        Debug.Log("b");
-
         var posXPlayer = GetPosicao().x;
         var posYPlayer = GetPosicao().y;
 
         PlayerPrefs.SetFloat("posXPlayer", posXPlayer);
         PlayerPrefs.SetFloat("posYPlayer", posYPlayer);
-
-        Debug.Log("b");
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -387,7 +392,7 @@ public class Player : MonoBehaviour, IPlayer
     private void ConfiguracoesMorte()
     {
         animatorPlayer.speed = 0;
-        gameManager.LoadGame();
+        GameManager.LoadGame();
     }
 
     private void EncerraPulo()

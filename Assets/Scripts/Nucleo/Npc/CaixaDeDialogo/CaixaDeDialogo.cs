@@ -31,43 +31,12 @@ namespace Assets.Scripts.Npc.CaixaDeDialogo
         public void DesaparecerComACaixaDeDialogo()
         {
             animator.SetBool("IsOpen", false);
-
-            // foreach(var sprite in sprites)
-            // {
-            //     sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 0);
-            // }
-
-            // Debug.Log(textos.Length);
-            // foreach(var texto in textos)
-            // {
-            //     texto.color = new Color(texto.color.r, texto.color.g, texto.color.b, 0);
-            // }
-
-            // foreach(var imagem in imagens)
-            // {
-            //     imagem.color = new Color(imagem.color.r, imagem.color.g, imagem.color.b, 0);
-            // }
         }
 
         //Habilita a caixa de dialogo para o player.
         public void AparecerComACaixaDeDialogo()
         {
             animator.SetBool("IsOpen", true);
-
-            // foreach(var sprite in sprites)
-            // {
-            //     sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1.0f);
-            // }
-
-            // foreach(var texto in textos)
-            // {
-            //     texto.color = new Color(texto.color.r, texto.color.g, texto.color.b, 1.0f);
-            // }
-
-            // foreach(var imagem in imagens)
-            // {
-            //     imagem.color = new Color(imagem.color.r, imagem.color.g, imagem.color.b, 1.0f);
-            // }
         }
     }
 }

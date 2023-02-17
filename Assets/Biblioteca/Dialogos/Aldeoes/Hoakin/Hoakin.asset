@@ -78,8 +78,8 @@ MonoBehaviour:
   exit: 0
   speakerName: Hoakin
   dailogueLine: "Para alcan\xE7ar os lugares mais altos \xE9 preciso utilizar os
-    fragmentos reminiscentes, as bolinhas voadoras no meio do caminho.  Elas te oferecem
-    uma esp\xE9cie de apoio para pular novamente e assim chegar mais longe."
+    fragmentos reminiscentes, as bolinhas voadoras ao lado.  Elas te oferecem uma
+    esp\xE9cie de apoio para pular novamente e assim chegar mais longe."
   sprite: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -115,7 +115,6 @@ MonoBehaviour:
   ports:
     keys:
     - entry
-    - exit
     values:
     - _fieldName: entry
       _node: {fileID: 8631922921088374918}
@@ -129,14 +128,4 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 8631922921088374918}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
   entry: 0
-  exit: 0

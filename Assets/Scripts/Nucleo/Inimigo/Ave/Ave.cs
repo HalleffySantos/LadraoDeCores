@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Ave : MonoBehaviour, IInteracao, IInimigo
 {
+    // Limite a direita de onde a ave pode ir.
     public float limiteDireita;
 
+    // Limite a esquerda de onde a ave pode ir.
     public float limiteEsquerda;
 
+    // Velocidade de movimentação da ave.
     public float velocidadeInimigo;
 
     private Rigidbody2D enemyRigibody;

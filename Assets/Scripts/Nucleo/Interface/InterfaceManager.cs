@@ -49,7 +49,7 @@ public class InterfaceManager : MonoBehaviour
 
     public void LoadGame()
     {
-        //GameManager.FirstLoadGame();
+        GameManager.FirstLoadGame();
     }
 
     public void SairJogo(){ 

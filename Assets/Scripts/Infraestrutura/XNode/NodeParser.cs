@@ -101,8 +101,8 @@ namespace Assets.Scripts.Infraestrutura
 
                     yield return new WaitUntil(() => !isTypeSentenceInUse);
 
-                    yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
-                    yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Space));
+                    yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
+                    yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
                     
                     NextNode("exit");
                     break;

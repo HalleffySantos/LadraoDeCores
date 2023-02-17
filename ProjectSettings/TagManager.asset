@@ -12,6 +12,7 @@ TagManager:
   - ItemJumpManager
   - GameManager
   - BossAve
+  - Cutscene
   layers:
   - Default
   - TransparentFX

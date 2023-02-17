@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7037137763157963701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59bb58a06b255b64a9e1292bcd2e7d73, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -200, y: 120}
+  ports:
+    keys:
+    - entry
+    - exit
+    values:
+    - _fieldName: entry
+      _node: {fileID: -7037137763157963701}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: -762815866029822366}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: -7037137763157963701}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: entry
+        node: {fileID: 3476516544390973543}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  entry: 0
+  exit: 0
+  speakerName: Lucx
+  dailogueLine: Bom que posso aproveitar para pintar essa bela vista.
+  sprite: {fileID: 0}
 --- !u!114 &-762815866029822366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37,7 +85,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 3476516544390973543}
+        node: {fileID: -7037137763157963701}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -45,8 +93,9 @@ MonoBehaviour:
       _dynamic: 0
   entry: 0
   exit: 0
-  speakerName: 
-  dailogueLine: O Jogo foi salvo.
+  speakerName: Lucx
+  dailogueLine: "Talvez esse seja um bom lugar para descansar para jornada e me preparar
+    para o que est\xE1 por vir."
   sprite: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -64,7 +113,8 @@ MonoBehaviour:
   - {fileID: 6904903780107083939}
   - {fileID: -762815866029822366}
   - {fileID: 3476516544390973543}
-  current: {fileID: 0}
+  - {fileID: -7037137763157963701}
+  current: {fileID: 3476516544390973543}
 --- !u!114 &3476516544390973543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +128,7 @@ MonoBehaviour:
   m_Name: End
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -184, y: 120}
+  position: {x: 72, y: 120}
   ports:
     keys:
     - entry
@@ -89,7 +139,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: -762815866029822366}
+        node: {fileID: -7037137763157963701}
         reroutePoints: []
       _direction: 0
       _connectionType: 0

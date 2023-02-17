@@ -67,7 +67,6 @@ MonoBehaviour:
   ports:
     keys:
     - entry
-    - exit
     values:
     - _fieldName: entry
       _node: {fileID: -5725087540445617387}
@@ -81,17 +80,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: -5725087540445617387}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
   entry: 0
-  exit: 0
 --- !u!114 &-3586108767683743735
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,7 +10,32 @@ public class GameManager : MonoBehaviour, IGameManager
 
     private IList<Color> coresColetadas;
 
-    // Start is called before the first frame update
+    //Primeiro carregamento do jogo, seja pelo 'novo jogo' ou 'carregar jogo'.
+    public static void FirstLoadGame()
+    {
+        SceneManager.LoadScene("Camera");
+        SceneManager.LoadSceneAsync("Global", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Sala 9", LoadSceneMode.Additive);
+    }
+
+
+    //Carregamento do jogo após a primeira instancia de carregamento, usado quando o player morre.
+    public static void LoadGame()
+    {
+        SceneManager.UnloadSceneAsync("Global");
+        SceneManager.UnloadSceneAsync("Vila");
+        SceneManager.UnloadSceneAsync("Sala 8");
+        SceneManager.UnloadSceneAsync("Sala 9");
+
+        SceneManager.LoadSceneAsync("Global", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Sala 9", LoadSceneMode.Additive);
+    }
+
+    // Chamado quando o objeto é instaciado.
     void Start()
     {
         if (GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value).GetComponent<IPlayer>() != null)
@@ -27,16 +52,6 @@ public class GameManager : MonoBehaviour, IGameManager
     void Update()
     {
         
-    }
-
-    public void LoadGame()
-    {
-        SceneManager.LoadScene("Global");
-        SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Sala 9", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Sala 10", LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync("Sala 11", LoadSceneMode.Additive);
     }
 
     public void NovaCorColetada(Color cor)
