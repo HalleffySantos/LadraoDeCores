@@ -10,6 +10,11 @@ public class ItemJump : Terreno
         var player = tObject.GetComponent<IPlayer>();
         if (player != null)
         {
+            if (player.CorDoPlayer().a != corTerreno.a || player.CorDoPlayer().r != corTerreno.r || player.CorDoPlayer().g != corTerreno.g || player.CorDoPlayer().b != corTerreno.b)
+            {
+                tObject.GetComponent<IPlayer>().Morte();
+            }
+
             player.estaNoChao = true;
         }
     }

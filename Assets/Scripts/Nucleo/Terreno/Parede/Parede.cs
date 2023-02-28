@@ -16,11 +16,6 @@ public class Parede : Terreno
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     // Método para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
     public override void AcaoEntrada(GameObject tObject)
     {

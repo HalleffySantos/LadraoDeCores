@@ -58,6 +58,8 @@ public class Player : MonoBehaviour, IPlayer
 
     private AudioSource audioSourcePlayer;
 
+    private int corAtualPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -105,6 +107,7 @@ public class Player : MonoBehaviour, IPlayer
         MovimentoDash();
         VerificaAcaoStay();
         EscalaParede();
+        TrocaCor();
     }
 
     // FixedUpdate is called a predefined number of times per second
@@ -115,7 +118,7 @@ public class Player : MonoBehaviour, IPlayer
             return;
         }
 
-        MovimentoHorizontal();
+        Movimento();
         //ForaDosLimites();
 
         ConfiguracaoAnimacaoPlayer();
@@ -205,6 +208,7 @@ public class Player : MonoBehaviour, IPlayer
 
         PlayerPrefs.SetFloat("posXPlayer", posXPlayer);
         PlayerPrefs.SetFloat("posYPlayer", posYPlayer);
+        PlayerPrefs.SetInt("corAtualPlayer", corAtualPlayer);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -246,7 +250,7 @@ public class Player : MonoBehaviour, IPlayer
         VerificaInteracaoSaida(col.gameObject.GetComponent<IInteracao>());
     }
 
-    private void MovimentoHorizontal()
+    private void Movimento()
     {
         if (!movimentoHabilitado)
         {
@@ -449,6 +453,28 @@ public class Player : MonoBehaviour, IPlayer
         if (qtd == 2)
         {
             gameObject.transform.position = new Vector3(posX, posY, 0);
+        }
+
+        corAtualPlayer = 0;
+        if (PlayerPrefs.HasKey("corAtualPlayer"))
+        {
+            corAtualPlayer = PlayerPrefs.GetInt("corAtualPlayer");
+            gameObject.GetComponent<SpriteRenderer>().color = corAtualPlayer == 0 ? gameManager.Cinza : gameManager.Amarelo;
+        }
+    }
+
+    private void TrocaCor()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = gameManager.Cinza;
+            corAtualPlayer = 0;
+        }
+
+        else if (Input.GetKeyDown(KeyCode.I) && gameManager.AmareloEncontrado)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = gameManager.Amarelo;
+            corAtualPlayer = 1;
         }
     }
 

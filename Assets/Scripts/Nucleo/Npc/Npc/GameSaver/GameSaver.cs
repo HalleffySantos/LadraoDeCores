@@ -5,12 +5,14 @@ using UnityEngine;
 public class GameSaver : NpcAutomatico
 {
     private IPlayer player;
+    private IGameManager gameManager;
 
     public override void Start()
     {
         base.Start();
 
         player = GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value).GetComponent<IPlayer>();
+        gameManager = GameObject.FindGameObjectWithTag(GameObjectsTags.GameManagerTag.Value).GetComponent<IGameManager>();
     }
 
     // Método para realização da ação chamada pelo OnTriggerEnter ou OnCollisionEnter.
@@ -25,6 +27,7 @@ public class GameSaver : NpcAutomatico
             }
 
             player.SaveGame();
+            gameManager.SaveGame();
         }
     }
 

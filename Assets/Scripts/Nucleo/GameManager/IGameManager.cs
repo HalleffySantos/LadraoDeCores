@@ -2,7 +2,11 @@ using UnityEngine;
 
 public interface IGameManager
 {
-    void NovaCorColetada(Color cor);
+    public bool AmareloEncontrado { get; set; }
 
-    void ResetaInimigos();
+    public Color Amarelo { get; }
+
+    public Color Cinza { get; }
+
+    public void SaveGame();
 }

@@ -8,7 +8,13 @@ public class GameManager : MonoBehaviour, IGameManager
 {
     private IPlayer player;
 
-    private IList<Color> coresColetadas;
+    public bool AmareloEncontrado { get; set; }
+
+    public bool AmareloPrimeiroEncontro { get; set; }
+
+    public Color Amarelo { get; private set; }
+
+    public Color Cinza { get; private set; }
 
     //Primeiro carregamento do jogo, seja pelo 'novo jogo' ou 'carregar jogo'.
     public static void FirstLoadGame()
@@ -35,6 +41,17 @@ public class GameManager : MonoBehaviour, IGameManager
         SceneManager.LoadSceneAsync("Sala 9", LoadSceneMode.Additive);
     }
 
+    void Awake()
+    {
+        Cinza = Color.white;
+        Amarelo = new Color(1, 0.9571f, 0.7311f, 1);
+        AmareloEncontrado = false;
+        if (PlayerPrefs.HasKey("AmareloEncontrado") && PlayerPrefs.GetInt("AmareloEncontrado") == 1)
+        {
+            AmareloEncontrado = true;
+        }
+    }
+
     // Chamado quando o objeto é instaciado.
     void Start()
     {
@@ -42,9 +59,6 @@ public class GameManager : MonoBehaviour, IGameManager
         {
             player = GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value).GetComponent<IPlayer>();
         }
-
-        coresColetadas = new List<Color>();
-        coresColetadas.Add(Color.black);
 
     }
 
@@ -54,33 +68,8 @@ public class GameManager : MonoBehaviour, IGameManager
         
     }
 
-    public void NovaCorColetada(Color cor)
+    public void SaveGame()
     {
-        coresColetadas.Add(cor);
-        ResetarCoresObjetos();
-    }
-
-    public void ResetaInimigos()
-    {
-        foreach(var inimigo in GameObject.FindGameObjectsWithTag(GameObjectsTags.InimigoTag.Value))
-        {
-            Destroy(inimigo);
-        }
-    }
-
-    private void ResetarCoresObjetos()
-    {
-        var terrenoPlayer = player.TerrenoEmContato();
-        var listaTerreno = GameObject.FindGameObjectsWithTag(GameObjectsTags.TerrenoTag.Value);
-        Debug.Log(listaTerreno);
-        foreach (var terreno in listaTerreno)
-        {
-            if (terreno.GetInstanceID() == terrenoPlayer)
-            {
-                continue;
-            }
-            
-            terreno.GetComponent<ITerreno>().ChangeColor(coresColetadas[(int)Random.Range(0, coresColetadas.Count)]);
-        }
+        PlayerPrefs.SetInt("AmareloEncontrado", AmareloEncontrado ? 1 : 0);
     }
 }

@@ -1,3 +1,4 @@
+using Assets.Scripts.Enumeradores.Animacoes;
 using Assets.Scripts.Interacao;
 using Assets.Scripts.Player;
 using UnityEngine;
@@ -17,10 +18,13 @@ public class Ave : MonoBehaviour, IInteracao, IInimigo
     
     private Vector3 direction;
 
+    private Animator aveAnimator;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        aveAnimator = gameObject.GetComponent<Animator>();
         enemyRigibody = gameObject.GetComponent<Rigidbody2D>();
         direction = new Vector3(-1, 0, 0).normalized;
 
@@ -65,11 +69,13 @@ public class Ave : MonoBehaviour, IInteracao, IInimigo
         if (gameObject.transform.position.x <= limiteEsquerda)
         {
             direction = new Vector3(1, 0, 0);
+            aveAnimator.SetBool(TriggersAnimacaoAve.MovDir.Value, true);
         }
 
         if (gameObject.transform.position.x >= limiteDireita)
         {
             direction = new Vector3(-1, 0, 0);
+            aveAnimator.SetBool(TriggersAnimacaoAve.MovDir.Value, false);
         }
     }
 
