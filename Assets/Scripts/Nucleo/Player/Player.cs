@@ -396,6 +396,7 @@ public class Player : MonoBehaviour, IPlayer
     private void ConfiguracoesMorte()
     {
         animatorPlayer.speed = 0;
+        GameObject.FindGameObjectWithTag(GameObjectsTags.CameraTag.Value).GetComponent<ICamera>().PlayerMorreu();
         GameManager.LoadGame();
     }
 

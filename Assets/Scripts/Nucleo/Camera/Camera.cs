@@ -17,16 +17,21 @@ public class Camera : MonoBehaviour, ICamera
     private float offSetEmVariacao;
     private bool emVariacao;
 
+    private bool playerMorreu;
+    private bool playerNotFound;
+
     // Start is called before the first frame update
     void Start()
     {
-        velocidadeVariacao = 0.01f;
+        velocidadeVariacao = 0.03f;
         topYCameraPlayer = 2.0f;
         centerYCameraPlayer = 1.0f;
         botYCameraPlayer = -2.0f;
 
         offSetAnterior = centerYCameraPlayer;
         emVariacao = false;
+
+        playerMorreu = false;
     }
 
     // Update is called once per frame
@@ -35,11 +40,32 @@ public class Camera : MonoBehaviour, ICamera
         AcompanharMovPlayer();
     }
 
+    public void PlayerMorreu()
+    {
+        playerMorreu = true;
+    }
+
     // Vincula a camera ao player
     private void AcompanharMovPlayer()
     {
+        if (GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value) == null)
+        {
+            playerNotFound = true;
+        }
+
         if (GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value) != null)
         {
+            if (playerMorreu && playerNotFound)
+            {
+                var playerR = GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value).GetComponent<IPlayer>();
+                playerMorreu = false;
+                playerNotFound = false;
+                transform.position = new Vector3(playerR.GetPosicao().x, playerR.GetPosicao().y + centerYCameraPlayer, transform.position.z);
+                return;
+            }
+
+            playerNotFound = false;
+
             var player = GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value).GetComponent<IPlayer>();
             
             var offSet = player.direcaoMovimento.y < 0 ? botYCameraPlayer : player.direcaoMovimento.y == 0 ? centerYCameraPlayer : topYCameraPlayer;
