@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Enumeradores;
+using Assets.Scripts.Mapeamento;
 using Assets.Scripts.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,6 +16,13 @@ public class InterfaceManager : MonoBehaviour
     public CanvasGroup canvasGroupBackground;
     public Animator animator;
 
+    void Start()
+    {
+        if (!PlayerPrefs.HasKey(GameManagerMap.GameSaved.Value))
+        {
+            Destroy(GameObject.FindGameObjectWithTag(GameObjectsTags.ButtonTag.Value).gameObject);
+        }
+    }
 
     public void FadeOut()
     {
@@ -26,12 +34,11 @@ public class InterfaceManager : MonoBehaviour
 
     public void FadeOutBackground()
     {
-       animator.SetTrigger("FadeOut");
+       animator.SetBool("FadeOut", true);
     }
 
     IEnumerator FadeOutMenu()
     {
-        //CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
         while (canvasGroup.alpha>0){
             canvasGroup.alpha -= Time.deltaTime / 2;
             yield return null;

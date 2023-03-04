@@ -13,6 +13,7 @@ TagManager:
   - GameManager
   - BossAve
   - Cutscene
+  - Button
   layers:
   - Default
   - TransparentFX

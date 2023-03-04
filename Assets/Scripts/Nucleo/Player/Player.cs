@@ -4,6 +4,7 @@ using System.Linq;
 using Assets.Scripts.Enumeradores;
 using Assets.Scripts.Enumeradores.Animacoes;
 using Assets.Scripts.Interacao;
+using Assets.Scripts.Mapeamento;
 using Assets.Scripts.Player;
 using UnityEngine;
 
@@ -206,9 +207,9 @@ public class Player : MonoBehaviour, IPlayer
         var posXPlayer = GetPosicao().x;
         var posYPlayer = GetPosicao().y;
 
-        PlayerPrefs.SetFloat("posXPlayer", posXPlayer);
-        PlayerPrefs.SetFloat("posYPlayer", posYPlayer);
-        PlayerPrefs.SetInt("corAtualPlayer", corAtualPlayer);
+        PlayerPrefs.SetFloat(PlayerMap.posXPlayer.Value, posXPlayer);
+        PlayerPrefs.SetFloat(PlayerMap.posYPlayer.Value, posYPlayer);
+        PlayerPrefs.SetInt(PlayerMap.corPlayer.Value, corAtualPlayer);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -439,15 +440,15 @@ public class Player : MonoBehaviour, IPlayer
         float posX = 0;
         int qtd = 0;
 
-        if (PlayerPrefs.HasKey("posYPlayer"))
+        if (PlayerPrefs.HasKey(PlayerMap.posYPlayer.Value))
         {
-            posY = PlayerPrefs.GetFloat("posYPlayer");
+            posY = PlayerPrefs.GetFloat(PlayerMap.posYPlayer.Value);
             qtd++;
         }
 
-        if (PlayerPrefs.HasKey("posXPlayer"))
+        if (PlayerPrefs.HasKey(PlayerMap.posXPlayer.Value))
         {
-            posX = PlayerPrefs.GetFloat("posXPlayer");
+            posX = PlayerPrefs.GetFloat(PlayerMap.posXPlayer.Value);
             qtd++;
         }
 
@@ -457,9 +458,9 @@ public class Player : MonoBehaviour, IPlayer
         }
 
         corAtualPlayer = 0;
-        if (PlayerPrefs.HasKey("corAtualPlayer"))
+        if (PlayerPrefs.HasKey(PlayerMap.corPlayer.Value))
         {
-            corAtualPlayer = PlayerPrefs.GetInt("corAtualPlayer");
+            corAtualPlayer = PlayerPrefs.GetInt(PlayerMap.corPlayer.Value);
             gameObject.GetComponent<SpriteRenderer>().color = corAtualPlayer == 0 ? gameManager.Cinza : gameManager.Amarelo;
         }
     }

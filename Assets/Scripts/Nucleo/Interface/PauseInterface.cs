@@ -47,6 +47,7 @@ public class PauseInterface : MonoBehaviour, IPauseInterface
 
     public void BackToMenu()
     {
-        SceneManager.LoadScene("Interface");
+        Time.timeScale = 1f;
+        SceneManager.LoadSceneAsync("Interface");
     }
 }

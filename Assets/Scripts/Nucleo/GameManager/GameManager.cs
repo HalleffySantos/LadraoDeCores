@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Assets.Scripts.Enumeradores;
+using Assets.Scripts.Mapeamento;
 using Assets.Scripts.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour, IGameManager
     //Primeiro carregamento do jogo, seja pelo 'novo jogo' ou 'carregar jogo'.
     public static void FirstLoadGame()
     {
-        SceneManager.LoadScene("Camera");
+        SceneManager.LoadSceneAsync("Camera");
         SceneManager.LoadSceneAsync("Global", LoadSceneMode.Additive);
         SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
         SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
@@ -46,7 +47,7 @@ public class GameManager : MonoBehaviour, IGameManager
         Cinza = Color.white;
         Amarelo = new Color(1, 0.9571f, 0.7311f, 1);
         AmareloEncontrado = false;
-        if (PlayerPrefs.HasKey("AmareloEncontrado") && PlayerPrefs.GetInt("AmareloEncontrado") == 1)
+        if (PlayerPrefs.HasKey(GameManagerMap.AmareloEncontrado.Value) && PlayerPrefs.GetInt(GameManagerMap.AmareloEncontrado.Value) == 1)
         {
             AmareloEncontrado = true;
         }
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour, IGameManager
 
     public void SaveGame()
     {
-        PlayerPrefs.SetInt("AmareloEncontrado", AmareloEncontrado ? 1 : 0);
+        PlayerPrefs.SetInt(GameManagerMap.GameSaved.Value, 1);
+        PlayerPrefs.SetInt(GameManagerMap.AmareloEncontrado.Value, AmareloEncontrado ? 1 : 0);
     }
 }

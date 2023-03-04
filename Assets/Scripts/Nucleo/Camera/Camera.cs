@@ -20,13 +20,17 @@ public class Camera : MonoBehaviour, ICamera
     private bool playerMorreu;
     private bool playerNotFound;
 
+    private Vector3 velocidade;
+
     // Start is called before the first frame update
     void Start()
     {
-        velocidadeVariacao = 0.03f;
+        velocidadeVariacao = 0.1f;
         topYCameraPlayer = 2.0f;
         centerYCameraPlayer = 1.0f;
         botYCameraPlayer = -2.0f;
+
+        velocidade = Vector3.zero;
 
         offSetAnterior = centerYCameraPlayer;
         emVariacao = false;
@@ -77,8 +81,11 @@ public class Camera : MonoBehaviour, ICamera
 
             if (emVariacao)
             {
+                //Vector3 posDesejada = new Vector3(0, player.GetPosicao().y + offSetEmVariacao, 0);
+                //Vector3 posFluida = Vector3.Lerp(new Vector3(0, transform.position.y, 0), posDesejada, velocidadeVariacao);
+                //transform.position = new Vector3(player.GetPosicao().x, posFluida.y, transform.position.z);
                 Vector3 posDesejada = new Vector3(0, player.GetPosicao().y + offSetEmVariacao, 0);
-                Vector3 posFluida = Vector3.Lerp(new Vector3(0, transform.position.y, 0), posDesejada, velocidadeVariacao);
+                Vector3 posFluida = Vector3.SmoothDamp(new Vector3(0, transform.position.y, 0), posDesejada, ref velocidade, velocidadeVariacao);
                 transform.position = new Vector3(player.GetPosicao().x, posFluida.y, transform.position.z);
 
                 int a = (int)(posDesejada.y*100);

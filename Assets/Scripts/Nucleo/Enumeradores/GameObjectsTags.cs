@@ -43,5 +43,8 @@ namespace Assets.Scripts.Enumeradores
 
         //Enumerador referente a tag da cutscene.
         public static GameObjectsTags CutsceneTag { get { return new GameObjectsTags("Cutscene"); } }
+
+        //Enumerador referente a tag dos botões.
+        public static GameObjectsTags ButtonTag { get { return new GameObjectsTags("Button"); } }
     }
 }
