@@ -44,8 +44,6 @@ public class Player : MonoBehaviour, IPlayer
 
     private IList<Collision2D> objetosEmColisao;
 
-    private bool pulou;
-
     private bool podeDash;
     private bool estaNoDash;
     private float forcaDash;
@@ -80,7 +78,6 @@ public class Player : MonoBehaviour, IPlayer
 
         objetosEmContato = new List<Collider2D>();
         objetosEmColisao = new List<Collision2D>();
-        pulou = false;
         podePular = true;
 
         podeDash = true;
@@ -212,6 +209,12 @@ public class Player : MonoBehaviour, IPlayer
         PlayerPrefs.SetInt(PlayerMap.corPlayer.Value, corAtualPlayer);
     }
 
+    // Retorna a velocidade do player referente aos eixos x, y, z.
+    public Vector3 VelocidadePlayer()
+    {
+        return playerRigidbody.velocity;
+    }
+
     private void OnCollisionEnter2D(Collision2D col)
     {
         objetosEmColisao.Add(col);
@@ -280,7 +283,6 @@ public class Player : MonoBehaviour, IPlayer
     private IEnumerator Pulo()
     {
         podePular = false;
-        pulou = true;
         estaNoChao = false;
         playerRigidbody.velocity = new Vector2(0, 0);
         playerRigidbody.angularVelocity = 0;
@@ -349,12 +351,23 @@ public class Player : MonoBehaviour, IPlayer
     {
         if (EstaPulando())
         {
-            animatorPlayer.SetBool(TriggersAnimacaoPlayer.Pular.Value, true);
+            if (playerRigidbody.velocity.y > 1.0f)
+            {
+                animatorPlayer.SetBool(TriggersAnimacaoPlayer.PuloUp.Value, true);
+                animatorPlayer.SetBool(TriggersAnimacaoPlayer.PuloDown.Value, false);
+            }
+
+            if (playerRigidbody.velocity.y < -1.0f)
+            {
+                animatorPlayer.SetBool(TriggersAnimacaoPlayer.PuloDown.Value, true);
+                animatorPlayer.SetBool(TriggersAnimacaoPlayer.PuloUp.Value, false);
+            }
         }
 
-        if (!EstaPulando() && animatorPlayer.GetBool(TriggersAnimacaoPlayer.Pular.Value))
+        if (!EstaPulando())
         {
-            animatorPlayer.SetBool(TriggersAnimacaoPlayer.Pular.Value, false);
+            animatorPlayer.SetBool(TriggersAnimacaoPlayer.PuloDown.Value, false);
+            animatorPlayer.SetBool(TriggersAnimacaoPlayer.PuloUp.Value, false);
         }
     }
 
@@ -365,12 +378,7 @@ public class Player : MonoBehaviour, IPlayer
 
     private bool EstaPulando()
     {
-        if (estaNoChao && pulou)
-        {
-            pulou = false;
-        }
-
-        return pulou && !estaNoChao;
+        return !estaNoChao;
     }
 
     private bool EstaEscalando()
@@ -399,11 +407,6 @@ public class Player : MonoBehaviour, IPlayer
         animatorPlayer.speed = 0;
         GameObject.FindGameObjectWithTag(GameObjectsTags.CameraTag.Value).GetComponent<ICamera>().PlayerMorreu();
         GameManager.LoadGame();
-    }
-
-    private void EncerraPulo()
-    {
-        pulou = false;
     }
 
     private void EscalaParede()

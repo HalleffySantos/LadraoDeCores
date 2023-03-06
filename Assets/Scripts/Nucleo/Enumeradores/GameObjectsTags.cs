@@ -46,5 +46,11 @@ namespace Assets.Scripts.Enumeradores
 
         //Enumerador referente a tag dos botões.
         public static GameObjectsTags ButtonTag { get { return new GameObjectsTags("Button"); } }
+
+        //Enumerador referente a tag da caixaDeDialogoPergaminho.
+        public static GameObjectsTags CaixaPergaminhoTag { get { return new GameObjectsTags("CaixaDeDialogoPergaminho"); } }
+
+        //Enumerador referente a tag do nodeParserPergaminho.
+        public static GameObjectsTags NodeParserPergaminhoTag { get { return new GameObjectsTags("NodeParserPergaminho"); } }
     }
 }

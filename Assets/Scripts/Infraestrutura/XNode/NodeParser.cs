@@ -17,6 +17,8 @@ namespace Assets.Scripts.Infraestrutura
 
         public TextMeshProUGUI dialogue;
 
+        public GameObject caixa;
+
         private Coroutine _parser;
 
         private ICaixaDeDialogo caixaDeDialogo;
@@ -31,7 +33,7 @@ namespace Assets.Scripts.Infraestrutura
         void Start()
         {
             player = GameObject.FindGameObjectWithTag(GameObjectsTags.PlayerTag.Value).GetComponent<IPlayer>();
-            caixaDeDialogo = GameObject.FindGameObjectWithTag(GameObjectsTags.CaixaDeDialogoTag.Value).GetComponent<ICaixaDeDialogo>();
+            caixaDeDialogo = caixa.GetComponent<ICaixaDeDialogo>();
             isTypeSentenceInUse = false;
         }
 

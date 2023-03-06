@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: End
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 568, y: 72}
+  position: {x: 328, y: 56}
   ports:
     keys:
     - entry
@@ -55,7 +55,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 9105192091494441485}
+        node: {fileID: 3067652787838998387}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -77,9 +77,8 @@ MonoBehaviour:
   nodes:
   - {fileID: -7329696698994597141}
   - {fileID: 3067652787838998387}
-  - {fileID: 9105192091494441485}
   - {fileID: -6229516339727055916}
-  current: {fileID: 0}
+  current: {fileID: -6229516339727055916}
 --- !u!114 &3067652787838998387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,55 +116,6 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: entry
-        node: {fileID: 9105192091494441485}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  entry: 0
-  exit: 0
-  speakerName: "Pref\xE1cio"
-  dailogueLine: "Em um passado n\xE3o t\xE3o distante, o Sol brilhava intensamente,
-    as \xE1guas eram limpas e v\xEDvidas, as florestas eram cheias de vida e de cor."
-  sprite: {fileID: 0}
---- !u!114 &9105192091494441485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59bb58a06b255b64a9e1292bcd2e7d73, type: 3}
-  m_Name: Dialogue
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 280, y: 56}
-  ports:
-    keys:
-    - entry
-    - exit
-    values:
-    - _fieldName: entry
-      _node: {fileID: 9105192091494441485}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: exit
-        node: {fileID: 3067652787838998387}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 9105192091494441485}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: entry
         node: {fileID: -6229516339727055916}
         reroutePoints: []
       _direction: 1
@@ -175,6 +125,8 @@ MonoBehaviour:
   entry: 0
   exit: 0
   speakerName: "Pref\xE1cio"
-  dailogueLine: "Mas isso tudo foi antes do evento que mudaria para sempre todo o
-    curso da hist\xF3ria deste mundo. "
+  dailogueLine: "Em um passado n\xE3o t\xE3o distante, o Sol brilhava intensamente,
+    as \xE1guas eram limpas e v\xEDvidas, as florestas eram cheias de vida e de cor.
+    Mas isso tudo foi antes do evento que mudaria para sempre todo o curso da hist\xF3ria
+    deste mundo. "
   sprite: {fileID: 0}

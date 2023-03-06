@@ -90,7 +90,7 @@ public class Terreno : MonoBehaviour, IInteracao, ITerreno
 
     private void EstaPlayerEmContatoAoTerreno()
     {
-        if (playerEmContato != null && playerEmContato.Count > 0)
+        if (playerEmContato != null && playerEmContato.Count > 0 && playerEmContato[0].VelocidadePlayer().y <= 0.1 && playerEmContato[0].VelocidadePlayer().y >= -0.1)
         {
             var player = playerEmContato[0];
             player.estaNoChao = true;

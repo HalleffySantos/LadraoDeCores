@@ -46,5 +46,8 @@ namespace Assets.Scripts.Player
 
         // Salva a posição do jogador.
         void SaveGame();
+
+        // Retorna a velocidade do player referente aos eixos x, y, z;
+        Vector3 VelocidadePlayer();
     }
 }
