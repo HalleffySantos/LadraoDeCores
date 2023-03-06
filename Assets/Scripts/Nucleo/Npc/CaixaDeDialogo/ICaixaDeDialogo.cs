@@ -1,3 +1,5 @@
+using System.Collections;
+
 namespace Assets.Scripts.Npc.CaixaDeDialogo
 {
     // Responsável pela configuração da caixa de diálogo do canvas.
