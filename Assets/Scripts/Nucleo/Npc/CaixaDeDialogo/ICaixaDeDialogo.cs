@@ -10,6 +10,5 @@ namespace Assets.Scripts.Npc.CaixaDeDialogo
 
         //Habilita a caixa de dialogo para o player.
         public void AparecerComACaixaDeDialogo();
-    
     }
 }

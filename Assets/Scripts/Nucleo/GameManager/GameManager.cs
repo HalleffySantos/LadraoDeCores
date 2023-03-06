@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour, IGameManager
     //Primeiro carregamento do jogo, seja pelo 'novo jogo' ou 'carregar jogo'.
     public static void FirstLoadGame()
     {
-        SceneManager.LoadSceneAsync("Camera");
-        SceneManager.LoadSceneAsync("Global", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Camera");
+        SceneManager.LoadScene("Global",LoadSceneMode.Additive);
         SceneManager.LoadSceneAsync("Vila", LoadSceneMode.Additive);
         SceneManager.LoadSceneAsync("Sala 8", LoadSceneMode.Additive);
         SceneManager.LoadSceneAsync("Sala 9", LoadSceneMode.Additive);

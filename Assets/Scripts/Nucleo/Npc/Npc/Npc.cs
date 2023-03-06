@@ -99,7 +99,6 @@ public class Npc : MonoBehaviour, IInteracao
     internal void Dialogo(IPlayer player)
     {
         player.movimentoHabilitado = false;
-        Debug.Log(caixaDeDialogo.ToString());
         caixaDeDialogo.AparecerComACaixaDeDialogo();
         nodeParser.ExecuteDialogo(dialogueGraph);
     }

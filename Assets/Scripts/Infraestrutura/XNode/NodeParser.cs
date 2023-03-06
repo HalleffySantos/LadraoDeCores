@@ -149,8 +149,22 @@ namespace Assets.Scripts.Infraestrutura
 
         private void TerminarDialogo()
         {
+            Debug.Log("a");
+
+            if (caixaDeDialogo == null)
+            {
+                Debug.Log("c");
+                //caixaDeDialogo = caixa.GetComponent<ICaixaDeDialogo>();
+            }
+
+            if (player == null)
+            {
+                Debug.Log("d");
+            }
+
             if (caixaDeDialogo != null && player != null)
             {
+                Debug.Log("b");
                 caixaDeDialogo.DesaparecerComACaixaDeDialogo();
                 player.movimentoHabilitado = true;
             }
